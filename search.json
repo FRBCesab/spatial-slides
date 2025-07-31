@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "env-data.html#setting-the-stage",
+    "href": "env-data.html#setting-the-stage",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Setting the stage",
+    "text": "Setting the stage\nObjective:\n\nYou want to add information not measured in the field to your data\nand you have collected the GPS coordinates (and you know the projection system) 👍\n\n\nIssues:\n\nMany sources: satellite, re-analysis, models, …\nMany providers: Copernicus, IGN, NOAA, …\nMany disciplines: climate, soil, hydrology, remote sensing, social sciences\nFast evolving field, many newly released datasets, hard to keep track of updates\n\n\n\nQuestions to ask:\n\nWhat data do I need to answer my research question?\n\nDefine the spatial extent and resolution\n\nDefine temporal extent and resolution"
+  },
+  {
+    "objectID": "env-data.html#spatial-extent",
+    "href": "env-data.html#spatial-extent",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Spatial extent",
+    "text": "Spatial extent\n \n\n\nFrance \n\nIGN\ndata.gouv.fr\nSandre \n\n\nEurope \n\nCopernicus: land, climate, marine\nEU JRC\nEU Env. Agency\ndata.europa.eu\n\n\nWorld \n\nEarthEnv(terrestrial, 1km)\nBio-Oracle(marine, 0.05°)\n\n\n\nGoogle Earth Engine\nOpenLandMap\nR package Geodata"
+  },
+  {
+    "objectID": "env-data.html#topics",
+    "href": "env-data.html#topics",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Topics",
+    "text": "Topics\n\n\nClimate\n\nWorldClim\nChelsa\nERA5 (reanalysis, World)\nE-OBS (observation, Europe)\n\n\nLand cover\n\nCorine LC\nESA WorldCover\nESA Climate Change Initiative\nGLFC_FCS30D\n\n\nSoil\n\nISRIC Soil Grids (250m)\nFAO Harmonized World Soil Database (HWSD)(1km)\nEuropean Soil Database (ESDAC)\nBDGSF (France)\n\n\n\n\n\nElevation and bathymetry\n\nCopernicus DEM GLO 30\n\nSRTM\n\nGEBCO\nOpenTopography\n\n\nBiomes and Ecoregions\n\nFAO Global Agro-Ecological Zones\nKoppen-Geiger climate maps\nCopernicus Global Biomes\nWWF Ecoregions Terrestrial and Marine\n\n\nPopulation density\n\nWorldPop\nNASA Gridded Population of the World (GPW)\nJRC Global Human Settlement"
+  },
+  {
+    "objectID": "env-data.html#gis-tools",
+    "href": "env-data.html#gis-tools",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "GIS tools",
+    "text": "GIS tools\nGood news: you can do all your analysis in .\n\n\nRecommended tutorials:\n\nSpatial data science with R and terra\nSpatial Data Science with application in R (sf and stars)\nSpatial Statistics for Data Science: Theory and Practice with R\n\n\n\nOther tools:\n\nGoogle Earth Engine  Good alternative to avoid downloading large data and make use of Google computation power (for academics only)\n\nQuantum GIS  Open source alternative to ArcGIS. Dedicated GIS tool, helpful to create professional maps\n\n\n\nPlease contact me if you have any questions :  romain.frelat@fondationbiodiversite.fr"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nFELLOW Workshop 2\n",
+    "section": "",
+    "text": "FELLOW Workshop 2\nContent • Contribute • Reuse • Citation • See also"
+  },
+  {
+    "objectID": "index.html#content",
+    "href": "index.html#content",
+    "title": "\nFELLOW Workshop 2\n",
+    "section": "Content",
+    "text": "Content\nOnline presentations for the workshop on Spatial data analysis in R by FRB-CESAB.\n\n\n  Environment databases"
+  },
+  {
+    "objectID": "index.html#contribute",
+    "href": "index.html#contribute",
+    "title": "\nFELLOW Workshop 2\n",
+    "section": "Contribute",
+    "text": "Contribute\nIf you see mistakes or want to suggest changes, please create an issue on the source repository."
+  },
+  {
+    "objectID": "index.html#reuse",
+    "href": "index.html#reuse",
+    "title": "\nFELLOW Workshop 2\n",
+    "section": "Reuse",
+    "text": "Reuse\nText and figures are licensed under Creative Commons Attribution CC By 4.0, unless otherwise noted."
+  },
+  {
+    "objectID": "index.html#citation",
+    "href": "index.html#citation",
+    "title": "\nFELLOW Workshop 2\n",
+    "section": "Citation",
+    "text": "Citation\nPlease cite these presentations as:\n\nFrelat R, Coux C, and Casajus N (2025) Environment databases frequently used in biodiversity research. URL: https://fellow-flora.github.io/slides-ws2/env-data.html"
+  },
+  {
+    "objectID": "index.html#see-also",
+    "href": "index.html#see-also",
+    "title": "\nFELLOW Workshop 2\n",
+    "section": "See also",
+    "text": "See also\nDiscover the other training courses provided by the FRB-CESAB and its partners: https://frbcesab.github.io/content/courses.html"
+  }
+]
