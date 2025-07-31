@@ -1,0 +1,21 @@
+project:
+  type: website
+  execute-dir: project
+  output-dir: docs
+  render:
+    - "index.qmd"
+    - "env-data.qmd"
+
+execute: 
+  freeze: false
+
+website:
+  title: "FRB-CESAB workshop on spatial data analysis in R"
+  repo-url: https://frbcesab.github.io/spatial-r/
+  repo-actions: [issue]
+
+format:
+  html:
+    toc: true
+    link-external-newwindow: true
+    link-external-icon: false

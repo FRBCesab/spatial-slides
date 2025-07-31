@@ -1,0 +1,198 @@
+## Setting the stage
+
+**Objective:**   
+
+> You want to add information not measured in the field to your data   
+>  and you have **collected the GPS coordinates** (*and you know the projection system*) :thumbsup:
+
+
+. . . 
+
+**Issues:**
+
+- Many sources: satellite, re-analysis, models, ...
+- Many providers: Copernicus, IGN, NOAA, ...
+- Many disciplines: climate, soil, hydrology, remote sensing, social sciences
+- Fast evolving field, many newly released datasets, hard to keep track of updates
+
+
+. . . 
+
+**Questions to ask:**  
+
+- What data do I need to answer my research question?  
+- Define the spatial extent and resolution  
+- Define temporal extent and resolution  
+
+
+## Spatial extent
+
+<br> <br>
+
+:::: {.columns}
+
+::: {.column width=33%}
+**France**
+ <br>
+
+- [IGN](https://geoservices.ign.fr/catalogue)
+- [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/)
+- [Sandre](https://www.sandre.eaufrance.fr/atlas/srv/fre/catalog.search#/home)
+<!-- 
+Theia ? 
+-->
+:::
+
+::: {.column width=33% .fragment}
+**Europe**
+ <br>
+
+- Copernicus: [land](https://land.copernicus.eu/en/products), [climate](https://cds.climate.copernicus.eu/datasets), [marine](https://data.marine.copernicus.eu/products)
+- [EU JRC](https://data.jrc.ec.europa.eu/dataset)
+- [EU Env. Agency](https://www.eea.europa.eu/en/datahub)
+- [data.europa.eu](https://data.europa.eu/data/datasets)
+:::
+
+
+::: {.column width=33% .fragment}
+**World**
+ <br>
+
+- [EarthEnv](https://www.earthenv.org/)(terrestrial, 1km)
+- [Bio-Oracle](https://bio-oracle.org/)(marine, 0.05°)
+
+ <br>
+
+- [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog)
+- [OpenLandMap](https://openlandmap.org/)
+- [R package Geodata](https://github.com/rspatial/geodata)
+:::
+
+::::
+
+
+## Topics
+
+:::: {.columns}
+
+::: {.column width=33%}
+**Climate**
+
+- [WorldClim](https://www.worldclim.org/)
+- [Chelsa](https://chelsa-climate.org/)
+- [ERA5](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview) (reanalysis, World)
+- [E-OBS](https://surfobs.climate.copernicus.eu/dataaccess/access_eobs.php#datafiles) (observation, Europe)
+:::
+
+::: {.column width=33% .fragment}
+**Land cover**
+
+- [Corine LC](https://land.copernicus.eu/en/products/clc-backbone)
+- [ESA WorldCover](https://esa-worldcover.org/en) 
+- [ESA Climate Change Initiative](https://cds.climate.copernicus.eu/datasets/satellite-land-cover?tab=download)
+- [GLFC_FCS30D](https://essd.copernicus.org/articles/16/1353/2024/)
+
+:::
+
+::: {.column width=33% .fragment}
+**Soil**
+
+- [ISRIC Soil Grids](https://www.isric.org/explore/soilgrids) (250m)
+- [FAO Harmonized World Soil Database (HWSD)](https://gaez.fao.org/pages/hwsd)(1km)
+- [European Soil Database (ESDAC)](https://esdac.jrc.ec.europa.eu/resource-type/european-soil-database-soil-properties)
+- [BDGSF](https://entrepot.recherche.data.gouv.fr/dataverse/bdgsf) (France)
+
+:::
+
+::::
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=33% .fragment}
+**Elevation and bathymetry**
+
+- [Copernicus DEM GLO 30](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM)  
+- [SRTM](https://www.earthdata.nasa.gov/data/instruments/srtm)  
+- [GEBCO](https://www.gebco.net/data-products/gridded-bathymetry-data)
+- [OpenTopography](https://portal.opentopography.org/)
+:::
+
+::: {.column width=33% .fragment}
+**Biomes and Ecoregions**
+
+- [FAO Global Agro-Ecological Zones](https://gaez.fao.org/)
+- [Koppen-Geiger climate maps](https://springernature.figshare.com/collections/High-resolution_1_km_K_ppen-Geiger_maps_for_1901_2099_based_on_constrained_CMIP6_projections/6395666/1)
+- [Copernicus Global Biomes](https://zenodo.org/records/5848610)
+- WWF Ecoregions [Terrestrial](https://www.worldwildlife.org/publications/terrestrial-ecoregions-of-the-world) and [Marine](https://www.worldwildlife.org/publications/marine-ecoregions-of-the-world-a-bioregionalization-of-coastal-and-shelf-areas)
+:::
+
+::: {.column width=33% .fragment}
+**Population density**
+
+- [WorldPop](https://www.worldpop.org/)
+- [NASA Gridded Population of the World (GPW)](https://www.earthdata.nasa.gov/data/projects/gpw) 
+- [JRC Global Human Settlement](https://data.jrc.ec.europa.eu/dataset/2ff68a52-5b5b-4a22-8f40-c41da8332cfe)
+:::
+
+::::
+
+<br/>
+
+<!--
+:::: {.columns}
+::: {.column width=33%}
+**Remote sensing**
+
+- LandSat
+- Modis
+:::
+
+
+::: {.column width=33%}
+**Human footprint**
+
+- Human Footprint Index
+- Global Roads Inventory Project (GRIP)
+- [Naturalness, CARTNAT](https://doi.org/10.1038/s43247-025-02160-0) (France)
+- [Pesticide use](https://doi.org/10.1038/s41597-025-04864-6) (France)
+:::
+
+::: {.column width=33%}
+**Boundaries**
+
+- Natural Earth
+- GADM
+- WDPA
+:::
+::::
+-->
+
+
+## GIS tools
+
+**Good news**: you can do all your analysis in {{< fa brands r-project >}}.  
+
+. . . 
+
+<br> 
+
+**Recommended tutorials**:
+
+- [Spatial data science with R and terra](https://rspatial.org/index.html)
+- [Spatial Data Science with application in R (sf and stars)](https://r-spatial.org/book/)
+- [Spatial Statistics for Data Science: Theory and Practice with R](https://www.paulamoraga.com/book-spatial/index.html)
+
+. . . 
+
+**Other tools**:
+
+- [**Google Earth Engine**](https://developers.google.com/earth-engine) <br> Good alternative to avoid downloading large data and make use of Google computation power (for academics only)  
+- [**Quantum GIS**](https://qgis.org/) <br> Open source alternative to ArcGIS. Dedicated GIS tool, helpful to create professional maps
+
+
+. . . 
+
+
+Please contact me if you have any questions : [{{< fa envelope >}} romain.frelat@fondationbiodiversite.fr](mailto:romain.frelat@fondationbiodiversite.fr)

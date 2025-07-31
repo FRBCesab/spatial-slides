@@ -1,0 +1,22 @@
+---
+from: markdown+emoji
+format:
+  revealjs:
+    logo: img/cesab-logo.png
+    footer: "{{< fa brands github >}} &nbsp;[`Spatial data analysis`](https://frbcesab.github.io/spatial-r/) &nbsp; &bull; &nbsp; {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} &nbsp;[`cc-by-4.0`](https://creativecommons.org/licenses/by/4.0/deed.en)"
+    smaller: true
+    auto-stretch: false
+    toc-depth: 1
+    theme: [default, "css/custom.scss"]
+engine: knitr
+---
+
+
+```{r}
+#| child: "slides/env-title-slide.qmd"
+```
+
+```{r}
+#| child: "slides/env-main.qmd"
+```
+
