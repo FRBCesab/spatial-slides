@@ -19,14 +19,18 @@ frequently used in biodiversity research
 :::
 
 ::: {.date}
-```{r}
+July 2025
+<!--
+# remove R script, since it is not used anywhere else
+# date: today
+# date-format: "MMM YYYY"
 #| echo: false
 #| results: asis
 olocale <- Sys.getlocale("LC_TIME")
 invisible(Sys.setlocale("LC_TIME", "en_US.UTF-8"))
 cat(format(Sys.Date(), "%B %Y"))
 invisible(Sys.setlocale("LC_TIME", olocale))
-```
+-->
 :::
 
 :::: {.columns .authors}
