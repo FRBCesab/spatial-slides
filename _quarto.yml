@@ -4,7 +4,8 @@ project:
   output-dir: docs
   render:
     - "index.qmd"
-    - "env-data.qmd"
+    - "intro-GIS.qmd"
+    - "data-GIS.qmd"
 
 execute: 
   freeze: false

@@ -125,4 +125,27 @@ introduction to MetaGIS
 
 ## Accessing Spatial data from R
 
+- [Web Map Services (WMS)](https://www.ogc.org/standards/wms/): data in raster format e.g. images (e.g. .tif)
+- [Web Map Tile Service(WMTS)](https://www.ogc.org/standards/wmts/) : same as WMS raster but images are precalculated as tile
+- [Web Feature Service (WFS)](https://www.ogc.org/standards/wfs/) : data in vector format (e.g. .shp).
 
+## Other R package with data
+
+- Abiotic data
+    marmap
+    geodata
+    rnoaa
+    rWBclimate
+    sdmpredictors
+
+- Biotic data
+    rgbif
+    robis
+    spocc
+
+- Base maps
+    ggmap
+    mregions
+    osmdata
+    raster
+    rnaturalearth

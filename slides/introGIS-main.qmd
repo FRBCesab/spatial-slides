@@ -37,6 +37,7 @@ The projection system will depend on the objective and the spatial extent.
 - azimut, conformal
 
 Every country has one (or many) reference projection system(s), a long list [here](https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data).
+<https://www.esri.com/arcgis-blog/products/arcgis-pro/analytics/geodesic-or-planar-which-to-use-for-distance-analysis>
 One system to name them all: [EPSG](https://epsg.io/)
 
 Main issue if you study large areas, or polar regions.
@@ -64,14 +65,32 @@ use appropriate projection system (e.g. equalarea for areas)*
 ** but not with `sf`, unless s2 deactivated, calculation with s2 makes issue, not intuitive
 *** be carefull of the unit too!
 
-## Spatial data
+## Two world views: Raster vs Vector
 
-There are two world views: raster vs vector
-a nice image
+<!-- https://gisgeography.com/spatial-data-types-vector-raster/ -->
+
 
 ## Data format
 
 raster vs vector
+
+
+vector: **Geopackage** is most recommended (and it can host raster too)  
+
+ESRI shapefile | shp | format from ESRI ArcGIS | (+): very commun, lightweight (-): multiple files (dbf, shx, shp, prj), transform variable names (10 characters)
+kml |kml | Google Earth file | (+): good for GoogleEarth (-) Google
+Geopackage |gkpd| open format based on SQLite | (+): respect the format of original data,
+geojson | geojson | plain text | (+) can be open and edited by hand, good for web API (-) only WGS84 supported, heavier storage size
+GPS Exchange Format (GPX) |.gpx| is an XML schema designed for transferring GPS data between applications.
+
+raster: **tif or nc**  
+
+Network Common Data Form(NetCDF) |.nc| storing multi-dimensional, array-oriented variables
+GRIdded Binary (GRIB) | .grb| standard by the WMO, multidimensional file with the advantages of self-description, flexibility and expandability. 
+GeoTIFF |.tif| the image standard file for GIS and satellite remote sensing applications. It can store multiple realisations as “bands”. GeoTIFFs can be accompanied by other auxiliary files (.tfw for raster geolocation, .xml for metadata, .aux for projections and others, .ovr for pyramids to improve visualisation).
+ASCII Grid | .asc| ASCII Grid files are simple text files that represent raster data
+
+
 
 ## R packages
 

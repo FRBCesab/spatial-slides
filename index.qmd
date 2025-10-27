@@ -40,7 +40,7 @@ Online presentations for the workshop on [Spatial data analysis in R](https://fr
 <h1 align="center">
   <br>
   <a href="https://frbcesab.github.io/spatial-slides/data-GIS.html"><img src="img/logo-dataenv-title.png" alt="Env" width="200"></a>
-  <br>Introduction to GIS<br>
+  <br>Accessing spatial data<br>
 </h1>
 
 
