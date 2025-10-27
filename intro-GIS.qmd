@@ -13,10 +13,10 @@ engine: knitr
 
 
 ```{r}
-#| child: "slides/env-title-slide.qmd"
+#| child: "slides/introGIS-title-slide.qmd"
 ```
 
 ```{r}
-#| child: "slides/env-main.qmd"
+#| child: "slides/introGIS-main.qmd"
 ```
 

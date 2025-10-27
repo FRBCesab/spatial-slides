@@ -11,11 +11,11 @@
 ::: {.column .information width="68%"}
 
 ::: {.title}
-Environment databases
+Spatial analysis with R
 :::
 
 ::: {.subtitle}
-frequently used in biodiversity research
+more about climate data
 :::
 
 ::: {.date}
@@ -31,17 +31,6 @@ invisible(Sys.setlocale("LC_TIME", olocale))
 
 :::: {.columns .authors}
 
-::: {.column .author width="32%"}
-Nicolas Casajus<br/>
-[{{< fa envelope >}}](mailto:rdev.nc@gmail.com)
-[{{< fa brands github >}}](https://github.com/ahasverus)
-:::
-
-::: {.column .author width="32%"}
-Camille Coux<br/>
-[{{< fa envelope >}}](mailto:camille.coux@fondationbiodiversite.fr)
-[{{< fa brands github >}}](https://github.com/camillecoux)
-:::
 
 ::: {.column .author width="32%"}
 Romain Frelat<br/>

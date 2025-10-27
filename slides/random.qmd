@@ -1,0 +1,61 @@
+## WMS/WMTS/WFS
+
+- [Web Map Services (WMS)](https://www.ogc.org/standards/wms/): data in raster format e.g. images (e.g. .tif)
+- [Web Map Tile Service(WMTS)](https://www.ogc.org/standards/wmts/) : same as WMS raster but images are precalculated as tile
+- [Web Feature Service (WFS)](https://www.ogc.org/standards/wfs/) : data in vector format (e.g. .shp).
+
+
+## Raster vs Vector view
+<!-- https://gisgeography.com/spatial-data-types-vector-raster/ -->
+
+## Feature format
+
+**Geopackage** is most recommended (and it can host raster too)
+
+ESRI shapefile | shp | format from ESRI ArcGIS | (+): very commun, lightweight (-): multiple files (dbf, shx, shp, prj), transform variable names (10 characters)
+kml |kml | Google Earth file | (+): good for GoogleEarth (-) Google
+Geopackage |gkpd| open format based on SQLite | (+): respect the format of original data,
+geojson | geojson | plain text | (+) can be open and edited by hand, good for web API (-) only WGS84 supported, heavier storage size
+GPS Exchange Format (GPX) |.gpx| is an XML schema designed for transferring GPS data between applications.
+
+<!-- Ressources:
+https://si.ecrins-parcnational.com/blog/2020-02-geojson-shapefile-geopackage.html
+https://gisgeography.com/gis-formats/
+https://mapscaping.com/shapefiles-vs-geopackage/
+-->
+
+## Raster format
+
+**tif or nc**
+
+Network Common Data Form(NetCDF) |.nc| storing multi-dimensional, array-oriented variables
+GRIdded Binary (GRIB) | .grb| standard by the WMO, multidimensional file with the advantages of self-description, flexibility and expandability. 
+GeoTIFF |.tif| the image standard file for GIS and satellite remote sensing applications. It can store multiple realisations as “bands”. GeoTIFFs can be accompanied by other auxiliary files (.tfw for raster geolocation, .xml for metadata, .aux for projections and others, .ovr for pyramids to improve visualisation).
+ASCII Grid | .asc| ASCII Grid files are simple text files that represent raster data
+
+
+## Projection and distances
+https://www.esri.com/arcgis-blog/products/arcgis-pro/analytics/geodesic-or-planar-which-to-use-for-distance-analysis
+
+
+
+## Environmental data
+8.1.1 Abiotic data
+    marmap
+    raster
+    rnoaa
+    rWBclimate
+    sdmpredictors
+
+8.1.2 Biotic data
+    rgbif
+    robis
+    spocc
+
+8.1.3 Base maps
+    ggmap
+    mregions
+    osmdata
+    raster
+    rnaturalearth
+

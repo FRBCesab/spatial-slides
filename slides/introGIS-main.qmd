@@ -1,0 +1,89 @@
+## What is Geographic Information System (GIS)?
+
+::::{ .columns }
+:::{ .column width="60%" .fragment}
+![](img/GIS_illu_CC0.JPG){width=100%}
+:::
+
+:::{ .column width="40%"}
+<br>
+
+- **softwares to handle spatial data**
+- **data stored with their coordinates**
+- **defined projection system**
+:::
+::::
+
+
+## Coordinates
+
+image round earth and lat/long
+
+
+## Projection
+
+video?
+
+
+## Projection
+
+> There is no perfect projection.
+
+The projection system will depend on the objective and the spatial extent.
+
+**Equi:** 
+- distant, equidistant
+- area - equalarea
+- azimut, conformal
+
+Every country has one (or many) reference projection system(s), a long list [here](https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data).
+One system to name them all: [EPSG](https://epsg.io/)
+
+Main issue if you study large areas, or polar regions.
+
+## The most commun projection system
+
+table
+France
+Europe
+World:  
+- World Geodetic System 1984, [EPSG:4326](https://epsg.io/4326)
+- Google, OSM, WGS 84 / Pseudo-Mercator [EPSG:3857](https://epsg.io/3857)
+
+Local map: [UTM](https://gisgeography.com/utm-universal-transverse-mercator-projection/)
+
+## When must you care about projection?
+
+**Crossing information from different source**
+- Make sure the projection system are the same, else project
+
+**Calculating distances, or areas** 
+use appropriate projection system (e.g. equalarea for areas)*
+
+* `terra` now indicates that most precise calculation are spherical with lat/long coordinates
+** but not with `sf`, unless s2 deactivated, calculation with s2 makes issue, not intuitive
+*** be carefull of the unit too!
+
+## Spatial data
+
+There are two world views: raster vs vector
+a nice image
+
+## Data format
+
+raster vs vector
+
+## R packages
+
+raster vs vector
+
+## Is R a good GIS software?
+
+REPRODUCIBILITY
+
+## Maps in R
+
+{{< fa brands r-project >}}
+
+
+## Program of the workshop

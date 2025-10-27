@@ -1,13 +1,10 @@
 # render the quarto presentations
 
-# github introduction
-# quarto::quarto_render("intro-git.qmd")
+# introduction presentation
+quarto::quarto_render("intro-GIS.qmd")
 
-# trait presentation
-# quarto::quarto_render("fellow-traits.qmd")
-
-# trait presentation
-quarto::quarto_render("env-data.qmd")
+# datasets presentation
+quarto::quarto_render("data-GIS.qmd")
 
 # or in the terminal:
 #> quarto render
