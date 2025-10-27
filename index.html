@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,14 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-123bf1f8be61e52d793a06c138bba625.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8fd1faf6fd93e4e6d207ae0f9db51d78.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -97,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <h1 align="center">
-<br>FELLOW Workshop 2<br>
+<br>Spatial analysis workshop<br>
 </h1>
 <p><br></p>
 <p align="center">
@@ -110,22 +111,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="content" class="level2">
 <h2 class="anchored" data-anchor-id="content">Content</h2>
 <p>Online presentations for the workshop on <a href="https://frbcesab.github.io/spatial-r/">Spatial data analysis in R</a> by FRB-CESAB.</p>
-<!--
 <h1 align="center">
-  <br>
-  <a href="https://fellow-flora.github.io/slides-ws2/intro-git.html"><img src="img/git-logo.png" alt="Git" width="200"></a>
-  <br>Introduction to git and Github<br>
+<br> <a href="https://frbcesab.github.io/spatial-slides/intro-GIS.html"><img src="img/logo-dataenv-title.png" alt="Env" width="200"></a> <br>Introduction to GIS<br>
 </h1>
-
-
 <h1 align="center">
-  <br>
-  <a href="https://fellow-flora.github.io/slides-ws2/fellow-traits.html"><img src="img/fellow-logo.png" alt="Traits" width="200"></a>
-  <br>FELLOW traits database<br>
-</h1>
--->
-<h1 align="center">
-<br> <a href="https://frbcesab.github.io/spatial-slides/env-data.html"><img src="img/logo-dataenv-title.png" alt="Env" width="200"></a> <br>Environment databases<br>
+<br> <a href="https://frbcesab.github.io/spatial-slides/data-GIS.html"><img src="img/logo-dataenv-title.png" alt="Env" width="200"></a> <br>Introduction to GIS<br>
 </h1>
 <p><br></p>
 </section>
@@ -141,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="citation">Citation</h2>
 <p>Please cite these presentations as:</p>
 <blockquote class="blockquote">
-<p>Frelat R, Coux C, and Casajus N (2025) Environment databases frequently used in biodiversity research. URL: <a href="https://fellow-flora.github.io/slides-ws2/env-data.html" class="uri">https://fellow-flora.github.io/slides-ws2/env-data.html</a></p>
+<p>Frelat R, and Casajus N (2025) Environment databases frequently used in biodiversity research. URL: <a href="https://frbcesab.github.io/spatial-r/" class="uri">https://frbcesab.github.io/spatial-r/</a></p>
 </blockquote>
 </section>
 <section id="see-also" class="level2">
@@ -203,13 +193,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
