@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "data-GIS.html#what-is-geographic-information-system-gis",
+    "href": "data-GIS.html#what-is-geographic-information-system-gis",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "What is Geographic Information System (GIS)?",
+    "text": "What is Geographic Information System (GIS)?"
+  },
+  {
+    "objectID": "data-GIS.html#data-sources",
+    "href": "data-GIS.html#data-sources",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Data sources",
+    "text": "Data sources\n \n\n\nFrance \n\nIGN\ndata.gouv.fr\nSandre \n\n\nEurope \n\nCopernicus: land, climate, marine\nEU JRC\nEU Env. Agency\ndata.europa.eu\n\n\nWorld \n\nEarthEnv(terrestrial, 1km)\nBio-Oracle(marine, 0.05°)\n\n\n\nGoogle Earth Engine\nOpenLandMap\nR package Geodata"
+  },
+  {
+    "objectID": "data-GIS.html#topics",
+    "href": "data-GIS.html#topics",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Topics",
+    "text": "Topics\n\n\nClimate\n\nWorldClim\nChelsa\nERA5 (reanalysis, World)\nE-OBS (observation, Europe)\n\n\nLand cover\n\nCorine LC\nESA WorldCover\nESA Climate Change Initiative\nGLFC_FCS30D\n\n\nSoil\n\nISRIC Soil Grids (250m)\nFAO Harmonized World Soil Database (HWSD)(1km)\nEuropean Soil Database (ESDAC)\nBDGSF (France)\n\n\n\n\n\nElevation and bathymetry\n\nCopernicus DEM GLO 30\n\nSRTM\n\nGEBCO\nOpenTopography\n\n\nBiomes and Ecoregions\n\nFAO Global Agro-Ecological Zones\nKoppen-Geiger climate maps\nCopernicus Global Biomes\nWWF Ecoregions Terrestrial and Marine\n\n\nPopulation density\n\nWorldPop\nNASA Gridded Population of the World (GPW)\nJRC Global Human Settlement"
+  },
+  {
+    "objectID": "data-GIS.html#keeping-track-of-new-spatial-data",
+    "href": "data-GIS.html#keeping-track-of-new-spatial-data",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Keeping track of new spatial data",
+    "text": "Keeping track of new spatial data\nintroduction to MetaGIS"
+  },
+  {
+    "objectID": "data-GIS.html#accessing-spatial-data-from-r",
+    "href": "data-GIS.html#accessing-spatial-data-from-r",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Accessing Spatial data from R",
+    "text": "Accessing Spatial data from R\n\nWeb Map Services (WMS): data in raster format e.g. images (e.g. .tif)\nWeb Map Tile Service(WMTS) : same as WMS raster but images are precalculated as tile\nWeb Feature Service (WFS) : data in vector format (e.g. .shp)."
+  },
+  {
+    "objectID": "data-GIS.html#other-r-package-with-data",
+    "href": "data-GIS.html#other-r-package-with-data",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Other R package with data",
+    "text": "Other R package with data\n\nAbiotic data marmap geodata rnoaa rWBclimate sdmpredictors\nBiotic data rgbif robis spocc\nBase maps ggmap mregions osmdata raster rnaturalearth"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "\nSpatial analysis workshop\n",
@@ -11,7 +53,7 @@
     "href": "index.html#content",
     "title": "\nSpatial analysis workshop\n",
     "section": "Content",
-    "text": "Content\nOnline presentations for the workshop on Spatial data analysis in R by FRB-CESAB.\n\n  Introduction to GIS\n\n\n  Introduction to GIS"
+    "text": "Content\nOnline presentations for the workshop on Spatial data analysis in R by FRB-CESAB.\n\n  Introduction to GIS\n\n\n  Accessing spatial data"
   },
   {
     "objectID": "index.html#contribute",
@@ -40,5 +82,89 @@
     "title": "\nSpatial analysis workshop\n",
     "section": "See also",
     "text": "See also\nDiscover the other training courses provided by the FRB-CESAB and its partners: https://frbcesab.github.io/content/courses.html"
+  },
+  {
+    "objectID": "intro-GIS.html#what-is-geographic-information-system-gis",
+    "href": "intro-GIS.html#what-is-geographic-information-system-gis",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "What is Geographic Information System (GIS)?",
+    "text": "What is Geographic Information System (GIS)?\n\n\n\n\n\n\nsoftwares to handle spatial data\ndata stored with their coordinates\ndefined projection system"
+  },
+  {
+    "objectID": "intro-GIS.html#coordinates",
+    "href": "intro-GIS.html#coordinates",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Coordinates",
+    "text": "Coordinates\nimage round earth and lat/long"
+  },
+  {
+    "objectID": "intro-GIS.html#projection",
+    "href": "intro-GIS.html#projection",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Projection",
+    "text": "Projection\nvideo?"
+  },
+  {
+    "objectID": "intro-GIS.html#projection-1",
+    "href": "intro-GIS.html#projection-1",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Projection",
+    "text": "Projection\n\nThere is no perfect projection.\n\nThe projection system will depend on the objective and the spatial extent.\nEqui: - distant, equidistant - area - equalarea - azimut, conformal\nEvery country has one (or many) reference projection system(s), a long list here. https://www.esri.com/arcgis-blog/products/arcgis-pro/analytics/geodesic-or-planar-which-to-use-for-distance-analysis One system to name them all: EPSG\nMain issue if you study large areas, or polar regions."
+  },
+  {
+    "objectID": "intro-GIS.html#the-most-commun-projection-system",
+    "href": "intro-GIS.html#the-most-commun-projection-system",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "The most commun projection system",
+    "text": "The most commun projection system\ntable France Europe World:\n- World Geodetic System 1984, EPSG:4326 - Google, OSM, WGS 84 / Pseudo-Mercator EPSG:3857\nLocal map: UTM"
+  },
+  {
+    "objectID": "intro-GIS.html#when-must-you-care-about-projection",
+    "href": "intro-GIS.html#when-must-you-care-about-projection",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "When must you care about projection?",
+    "text": "When must you care about projection?\nCrossing information from different source - Make sure the projection system are the same, else project\nCalculating distances, or areas use appropriate projection system (e.g. equalarea for areas)*\n\nterra now indicates that most precise calculation are spherical with lat/long coordinates ** but not with sf, unless s2 deactivated, calculation with s2 makes issue, not intuitive *** be carefull of the unit too!"
+  },
+  {
+    "objectID": "intro-GIS.html#two-world-views-raster-vs-vector",
+    "href": "intro-GIS.html#two-world-views-raster-vs-vector",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Two world views: Raster vs Vector",
+    "text": "Two world views: Raster vs Vector"
+  },
+  {
+    "objectID": "intro-GIS.html#data-format",
+    "href": "intro-GIS.html#data-format",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Data format",
+    "text": "Data format\nraster vs vector\nvector: Geopackage is most recommended (and it can host raster too)\nESRI shapefile | shp | format from ESRI ArcGIS | (+): very commun, lightweight (-): multiple files (dbf, shx, shp, prj), transform variable names (10 characters) kml |kml | Google Earth file | (+): good for GoogleEarth (-) Google Geopackage |gkpd| open format based on SQLite | (+): respect the format of original data, geojson | geojson | plain text | (+) can be open and edited by hand, good for web API (-) only WGS84 supported, heavier storage size GPS Exchange Format (GPX) |.gpx| is an XML schema designed for transferring GPS data between applications.\nraster: tif or nc\nNetwork Common Data Form(NetCDF) |.nc| storing multi-dimensional, array-oriented variables GRIdded Binary (GRIB) | .grb| standard by the WMO, multidimensional file with the advantages of self-description, flexibility and expandability. GeoTIFF |.tif| the image standard file for GIS and satellite remote sensing applications. It can store multiple realisations as “bands”. GeoTIFFs can be accompanied by other auxiliary files (.tfw for raster geolocation, .xml for metadata, .aux for projections and others, .ovr for pyramids to improve visualisation). ASCII Grid | .asc| ASCII Grid files are simple text files that represent raster data"
+  },
+  {
+    "objectID": "intro-GIS.html#r-packages",
+    "href": "intro-GIS.html#r-packages",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "R packages",
+    "text": "R packages\nraster vs vector"
+  },
+  {
+    "objectID": "intro-GIS.html#is-r-a-good-gis-software",
+    "href": "intro-GIS.html#is-r-a-good-gis-software",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Is R a good GIS software?",
+    "text": "Is R a good GIS software?\nREPRODUCIBILITY"
+  },
+  {
+    "objectID": "intro-GIS.html#maps-in-r",
+    "href": "intro-GIS.html#maps-in-r",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Maps in R",
+    "text": "Maps in R"
+  },
+  {
+    "objectID": "intro-GIS.html#program-of-the-workshop",
+    "href": "intro-GIS.html#program-of-the-workshop",
+    "title": "FRB-CESAB workshop on spatial data analysis in R",
+    "section": "Program of the workshop",
+    "text": "Program of the workshop"
   }
 ]
