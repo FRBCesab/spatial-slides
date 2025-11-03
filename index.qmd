@@ -32,15 +32,8 @@ Online presentations for the workshop on [Spatial data analysis in R](https://fr
 
 <h1 align="center">
   <br>
-  <a href="https://frbcesab.github.io/spatial-slides/intro-GIS.html"><img src="img/logo-dataenv-title.png" alt="Env" width="200"></a>
-  <br>Introduction to GIS<br>
-</h1>
-
-
-<h1 align="center">
-  <br>
-  <a href="https://frbcesab.github.io/spatial-slides/data-GIS.html"><img src="img/logo-dataenv-title.png" alt="Env" width="200"></a>
-  <br>Accessing spatial data<br>
+  <a href="https://frbcesab.github.io/spatial-slides/intro-GIS.html"><img src="img/spatialr_logo01b.png" alt="Env" width="200"></a>
+  <br>Introduction to GIS for ecologists<br>
 </h1>
 
 
@@ -58,10 +51,9 @@ Text and figures are licensed under Creative Commons Attribution [CC By 4.0](htt
 
 ## Citation
 
-Please cite these presentations as:
+Please cite these materials as:
 
-> Frelat R, and Casajus N (2025) Environment databases frequently used in biodiversity research. URL: <https://frbcesab.github.io/spatial-r/>  
-
+> Frelat R (2025) Spatial data analysis with R. Introduction to GIS for ecologists. URL: <https://frbcesab.github.io/spatial-r/>  
 
 
 ## See also

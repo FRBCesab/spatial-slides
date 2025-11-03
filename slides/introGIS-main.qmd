@@ -1,108 +1,599 @@
-## What is Geographic Information System (GIS)?
+## Objectives
+
+- Feel more comfortable to work with spatial data  
+- Load spatial data in R and visualize it
+- Extract information from remote sensing or model dataset
+- Take advantage of the numerous databases that are available online
+
+## Schedule
+
+| Time                   | Activities                                             |
+| -----------------------| -------------------------------------------------------|
+| 9.00  –  9.30 am <br>  | Introduction                                           |
+| 9.30  – 12.00 am <br>  | Tutorials on handling vectors data type: <br> [points](https://frbcesab.github.io/spatial-r/chapters/11_points.html), [lines](https://frbcesab.github.io/spatial-r/chapters/12_lines.html), and [polygons](https://frbcesab.github.io/spatial-r/chapters/13_polygons.html)|
+| 12.00 – 1.30 pm        | Lunch break                                            |
+| 1.30  – 4 pm     <br>  | Tutorials on handling [raster data type](https://frbcesab.github.io/spatial-r/chapters/21_rasters.html),<br> [high dimensioinal rasters](https://frbcesab.github.io/spatial-r/chapters/22_multilayer.html), and [make a grid](https://frbcesab.github.io/spatial-r/chapters/23_grid.html)  |
+
+<!-- Add output from the workshop in three columns: 
+21_rasters//figure-html/ex1-1.png
+22_multilayer_files/figure-html/rast_transform-1.png
+23_grid_files/figure-html/mask-1.png
+-->
 
 ::::{ .columns }
-:::{ .column width="60%" .fragment}
-![](img/GIS_illu_CC0.JPG){width=100%}
+:::{ .column width="30%"}
+![](https://frbcesab.github.io/spatial-r/chapters/13_polygons_files/figure-html/sfmap_line-1.png){width=100%}
 :::
 
-:::{ .column width="40%"}
+
+:::{ .column width="30%"}
+![](https://github.com/FRBCesab/spatial-r/raw/main/_freeze/chapters/13_polygons/figure-html/map_buffer_sf-1.png){width=100%}
+:::
+
+:::{ .column width="30%"}
+![](https://frbcesab.github.io/spatial-r/chapters/21_rasters_files/figure-html/visu_pts_rast-1.png){width=100%}
+:::
+
+::::
+
+> It's a practical workshop, you will work in front of the screen, so **don't forget to take breaks** !
+
+
+# What is Geographic Information System (GIS)?
+
+
+## Geographic Information System
+
+> A geographic information system (GIS) consists of integrated computer hardware and software that 
+> store, manage, analyze, edit, output, and visualize geographic data. (Wikipedia)
+
+
+:::: {.columns }
+::: {.column width="60%"}
+![](img/GIS_illu_CCO.JPG){height=5%}
+:::
+
+::: {.column width="40%"}
+
+::: {.incremental}
+
+- softwares to handle **spatial data**
+- data stored with their **coordinates**
+- defined by their **projection systems**
+:::
+
 <br>
 
-- **softwares to handle spatial data**
-- **data stored with their coordinates**
-- **defined projection system**
+::: {.fragment .nonincremental}
+Two key concepts in GIS:   
+
+- **Coordinate Reference Systems (CRS)**
+- data type: **raster vs vector**
 :::
+
+:::
+
 ::::
 
 
-## Coordinates
+# Coordinate Reference Systems
 
-image round earth and lat/long
+<!-- https://annakrystalli.me/intro-r-gis/gis.html -->
+
+## All maps are wrong
+
+<iframe width="784" height="441" src="https://www.youtube-nocookie.com/embed/kIID5FDi2JQ?si=OE-CA07hq7URVkWK" title="All maps are wrong" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!-- Another cool video, very old school and in French: La carte impossible (1947), Evelyn Lambart 
+<iframe src="https://www.onf.ca/film/carte_impossible/embed/player/" width="516" height="290" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+-->
+
+## There are many, many projections
+
+<iframe width="75%" height="540" frameborder="0"
+  src="https://observablehq.com/embed/@d3/projection-transitions?cells=viewof+projection%2Cviewof+context"></iframe>
+
+<!-- 
+or without attribution
+<iframe width="100%" height="719" frameborder="0"
+  src="https://observablehq.com/embed/@d3/projection-transitions?cells=viewof+projection%2Cviewof+context&banner=false"></iframe> 
+
+or video from NASA
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EWU26jetYnA?si=6Dd29DmHl8xaYoAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+-->
 
 
-## Projection
-
-video?
 
 
-## Projection
+## The most commun projection systems
 
-> There is no perfect projection.
+> One system to code them all: [EPSG](https://epsg.io/)^[European Petroleum Survey Group]
 
-The projection system will depend on the objective and the spatial extent.
+The projection system will depend on the objective and the spatial extent.  
 
-**Equi:** 
-- distant, equidistant
-- area - equalarea
-- azimut, conformal
+:::: {.columns}
 
-Every country has one (or many) reference projection system(s), a long list [here](https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data).
-<https://www.esri.com/arcgis-blog/products/arcgis-pro/analytics/geodesic-or-planar-which-to-use-for-distance-analysis>
-One system to name them all: [EPSG](https://epsg.io/)
+::: {.column width=45% .fragment}
+**Local**  
 
-Main issue if you study large areas, or polar regions.
+- France: <br> Lambert 93, conformal conic projection [EPSG:2154](https://epsg.io/2154)
+- Europe: <br> Lambert azimuthal equal-area [EPSG:3035](https://epsg.io/3035)
+- Other: Universal Transverse Mercator (UTM), e.g. 32N for Western Europe [EPSG:25832](https://epsg.io/25832)
+<!-- Polar regions : *prefer azimutal projection* -->
+:::
 
-## The most commun projection system
+::: {.column width=45% .fragment}
+**World**  
 
-table
-France
-Europe
-World:  
-- World Geodetic System 1984, [EPSG:4326](https://epsg.io/4326)
-- Google, OSM, WGS 84 / Pseudo-Mercator [EPSG:3857](https://epsg.io/3857)
+- geographic lat/long WGS84 [EPSG:4326](https://epsg.io/4326) used in GPS
+- Pseudo-Mercator [EPSG:3857](https://epsg.io/3857) used by GoogleMap, OpenStreetMap, leaflet, ...
+- many others (Winkel tripel [EPSG:53042](https://epsg.io/53042), Robinson [EPSG:54030](https://epsg.io/54030), ...)
+:::
 
-Local map: [UTM](https://gisgeography.com/utm-universal-transverse-mercator-projection/)
+::::
 
-## When must you care about projection?
+::: aside
 
-**Crossing information from different source**
-- Make sure the projection system are the same, else project
+ESRI made a long list [here](https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data) with their properties equal area, equidistant or conformal (= conserve angles).   
 
-**Calculating distances, or areas** 
-use appropriate projection system (e.g. equalarea for areas)*
+EPSG summarize in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.
+:::
 
-* `terra` now indicates that most precise calculation are spherical with lat/long coordinates
-** but not with `sf`, unless s2 deactivated, calculation with s2 makes issue, not intuitive
-*** be carefull of the unit too!
+<!-- 
+maybe mention old PROJ system, which is more readable, more flexible, yet more complex
+and https://crs-explorer.proj.org/ for choosing the right CRS
 
-## Two world views: Raster vs Vector
+add xkcd image : political
+-->
+
+## World projection systems are political
+
+![[xkcd.com/977](https://xkcd.com/977)](img/map_projection_xkcd.com977.png){width=100%}
+
+
+## When and why must you care about projection systems?
+
+<br>
+
+#### Crossing multiple spatial data from different sources 
+
+- Keep track of the projection system of your observation data
+- Make sure all datasets share the same projection system or project them
+
+<br>
+
+
+::: {.fragment}
+#### Calculating distances, or areas^[`terra` now uses spherical calculation by default using lat/long coordinates]    
+
+- use appropriate projection system (e.g. equal-area for areas or equidistant for distances)
+- the projection system will define the unit
+
+:::
+
+<!-- add a slide commun issue 
+but not with `sf`, unless s2 deactivated, calculation with s2 makes issue, not intuitive
+-->
+
+
+
+# Two world views: Raster vs Vector
 
 <!-- https://gisgeography.com/spatial-data-types-vector-raster/ -->
 
 
-## Data format
+## Vector vs Raster data type
 
-raster vs vector
+:::: {.columns}
+
+::: {.column width="30%"}
+### Vector
+
+::: {.fragment fragment-index=1}
+- Points, Lines or Polygons
+- Conserve shape and spatial accuracy
+- Good for GPS observations, patches, boundaries, ...
+
+:::
+::: {.fragment fragment-index=4}
+- Rivers
+:::
+::: {.fragment fragment-index=10}
+- Protected areas
+:::
+:::
+
+::: {.column width="40%"}
+![](img/vector-raster.png){width=100%}
+
+::: {.fragment fragment-index=3, .fade-in-then-out .center}
+Rivers ?
+:::
+::: {.fragment fragment-index=5, .fade-in-then-out .center}
+Vegetation index (e.g. NDVI)?
+:::
+::: {.fragment fragment-index=7, .fade-in-then-out .center}
+Elevation ?
+:::
+::: {.fragment fragment-index=9, .fade-in-then-out .center}
+Protected areas ?
+:::
+::: {.fragment fragment-index=11, .fade-in-then-out .center}
+Land use-land cover ?
+:::
+
+::: 
+
+::: {.column width="30%"}
+### Raster
+
+::: {.fragment fragment-index=2}
+- Matrix, regular grid with equidistant cells
+- Spatial resolution = cell size
+- Format for satellite data, model output, ...
+:::
+::: {.fragment fragment-index=6}
+- Vegetation index (e.g. NDVI)
+:::
+::: {.fragment fragment-index=8}
+- Elevation
+:::
+
+::: 
+
+::::
+
+<!-- 
+Scale (1/250000) vs resolution (250m, 0.1 degree)
+Carefull, opposite to intuition
+small scale (1:1000000) = large extent and low spatial resolution
+large scale (1:50000) = small extent and high spatial resolution
+-->
+
+## Vector vs Raster file format
+
+:::: {.columns}
+
+::: {.column width="30%"}
+### Vector
+
+- **Geopackage**(.gpkg) <br> open format based on SQLite
+- ESRI shapefile (.shp) <br> historical format from ESRI. <br> Multiple files (dbf, shx, shp, prj)
+- GPS Exchange Format (.gpx) <br> XML file designed for GPS data
+- geojson (.geojson) <br> plain text file, used in web API but limited to WGS84
+- Google Earth (.kml)
+
+:::
+
+::: {.column width="40%"}
+![](img/vector-raster.png){width=100%}
+::: 
+
+::: {.column width="30%" .fragment}
+### Raster
+
+- **GeoTIFF** (.tif) <br> the standard format. Can store multiple “bands”.
+- NetCDF (.nc) <br> for storing multi-dimensional, array-oriented variables
+- ASCII Grid (.asc) <br> simple text files
+- GRIdded Binary (.grb), WMO standard
+- Imagine (.img) ERDAS file format
+::: 
+
+::::
+<!-- https://www.ecologi.st/spatial-r/gis-data-models-and-file-formats.html -->
 
 
-vector: **Geopackage** is most recommended (and it can host raster too)  
+# Where to find spatial data?
 
-ESRI shapefile | shp | format from ESRI ArcGIS | (+): very commun, lightweight (-): multiple files (dbf, shx, shp, prj), transform variable names (10 characters)
-kml |kml | Google Earth file | (+): good for GoogleEarth (-) Google
-Geopackage |gkpd| open format based on SQLite | (+): respect the format of original data,
-geojson | geojson | plain text | (+) can be open and edited by hand, good for web API (-) only WGS84 supported, heavier storage size
-GPS Exchange Format (GPX) |.gpx| is an XML schema designed for transferring GPS data between applications.
+## Data sources
 
-raster: **tif or nc**  
+<br> <br>
 
-Network Common Data Form(NetCDF) |.nc| storing multi-dimensional, array-oriented variables
-GRIdded Binary (GRIB) | .grb| standard by the WMO, multidimensional file with the advantages of self-description, flexibility and expandability. 
-GeoTIFF |.tif| the image standard file for GIS and satellite remote sensing applications. It can store multiple realisations as “bands”. GeoTIFFs can be accompanied by other auxiliary files (.tfw for raster geolocation, .xml for metadata, .aux for projections and others, .ovr for pyramids to improve visualisation).
-ASCII Grid | .asc| ASCII Grid files are simple text files that represent raster data
+:::: {.columns}
+
+::: {.column width=33%}
+**France**
+ <br>
+
+- [IGN](https://geoservices.ign.fr/catalogue)
+- [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/)
+- [Sandre](https://www.sandre.eaufrance.fr/atlas/srv/fre/catalog.search#/home)
+<!-- 
+Theia ? 
+-->
+:::
+
+::: {.column width=33% .fragment}
+**Europe**
+ <br>
+
+- Copernicus: [land](https://land.copernicus.eu/en/products), [climate](https://cds.climate.copernicus.eu/datasets), [marine](https://data.marine.copernicus.eu/products)
+- [EU JRC](https://data.jrc.ec.europa.eu/dataset)
+- [EU Env. Agency](https://www.eea.europa.eu/en/datahub)
+- [EcoDataCube](https://ecodatacube.eu/)
+:::
+
+
+::: {.column width=33% .fragment}
+**World**
+ <br>
+
+- [EarthEnv](https://www.earthenv.org/)(terrestrial, 1km)
+- [Bio-Oracle](https://bio-oracle.org/)(marine, 0.05°)
+
+ <br>
+
+- [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog)
+- [OpenLandMap](https://openlandmap.org/)
+:::
+
+::::
+
+
+## Topics
+
+:::: {.columns}
+
+::: {.column width=33%}
+**Climate**
+
+- [WorldClim](https://www.worldclim.org/)
+- [Chelsa](https://chelsa-climate.org/)
+- [ERA5](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview) (reanalysis, World)
+- [E-OBS](https://surfobs.climate.copernicus.eu/dataaccess/access_eobs.php#datafiles) (observation, Europe)
+:::
+
+::: {.column width=33% .fragment}
+**Land cover**
+
+- [Corine LC](https://land.copernicus.eu/en/products/clc-backbone)
+- [ESA WorldCover](https://esa-worldcover.org/en) 
+- [ESA Climate Change Initiative](https://cds.climate.copernicus.eu/datasets/satellite-land-cover?tab=download)
+- [GLFC_FCS30D](https://essd.copernicus.org/articles/16/1353/2024/)
+
+:::
+
+::: {.column width=33% .fragment}
+**Soil**
+
+- [ISRIC Soil Grids](https://www.isric.org/explore/soilgrids) (250m)
+- [FAO Harmonized World Soil Database (HWSD)](https://gaez.fao.org/pages/hwsd)(1km)
+- [European Soil Database (ESDAC)](https://esdac.jrc.ec.europa.eu/resource-type/european-soil-database-soil-properties)
+<!-- [BDGSF](https://entrepot.recherche.data.gouv.fr/dataverse/bdgsf) (France) -->
+
+:::
+
+::::
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=33% .fragment}
+**Elevation and bathymetry**
+
+- [Copernicus DEM GLO 30](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM)  
+- [SRTM](https://www.earthdata.nasa.gov/data/instruments/srtm)  
+- [GEBCO](https://www.gebco.net/data-products/gridded-bathymetry-data)
+- [OpenTopography](https://portal.opentopography.org/)
+:::
+
+::: {.column width=33% .fragment}
+**Biomes and Ecoregions**
+
+- [FAO Global Agro-Ecological Zones](https://gaez.fao.org/)
+- [Koppen-Geiger climate maps](https://springernature.figshare.com/collections/High-resolution_1_km_K_ppen-Geiger_maps_for_1901_2099_based_on_constrained_CMIP6_projections/6395666/1)
+- [Copernicus Global Biomes](https://zenodo.org/records/5848610)
+- WWF Ecoregions [Terrestrial](https://www.worldwildlife.org/publications/terrestrial-ecoregions-of-the-world) and [Marine](https://www.worldwildlife.org/publications/marine-ecoregions-of-the-world-a-bioregionalization-of-coastal-and-shelf-areas)
+:::
+
+::: {.column width=33% .fragment}
+**Population density**
+
+- [WorldPop](https://www.worldpop.org/)
+- [NASA Gridded Population of the World (GPW)](https://www.earthdata.nasa.gov/data/projects/gpw) 
+- [JRC Global Human Settlement](https://data.jrc.ec.europa.eu/dataset/2ff68a52-5b5b-4a22-8f40-c41da8332cfe)
+:::
+
+::::
+
+<br/>
 
 
 
-## R packages
+## Keeping track of new spatial data
 
-raster vs vector
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![[MetaGIS](https://docs.google.com/spreadsheets/d/1OW6X94Ha_-_v5fe8XJlQp7ncubgF1CG6LgAIUk1kFcY/edit?gid=1637976342#gid=1637976342)](img/MetaGIS_01.png){width=100%}
+
+
+<!--
+<h1 align="center">
+  <a href="https://docs.google.com/spreadsheets/d/1OW6X94Ha_-_v5fe8XJlQp7ncubgF1CG6LgAIUk1kFcY/edit?gid=1637976342#gid=1637976342"><img src="img/MetaGIS_01.png" alt="Env" width="200"></a>
+  <br>[MetaGIS](https://docs.google.com/spreadsheets/d/1OW6X94Ha_-_v5fe8XJlQp7ncubgF1CG6LgAIUk1kFcY/edit?gid=1637976342#gid=1637976342)<br>
+</h1>
+-->
+::: 
+
+::: {.column width="50%"}
+<br>
+
+It could be a common effort  
+
+<br> 
+
+Don't hesitate to populate it
+
+<br> 
+Share it with colleagues : [terrameta](https://frbcesab.github.io/terrameta/)
+
+::: 
+
+::::
+
+# R as a GIS tool
 
 ## Is R a good GIS software?
 
-REPRODUCIBILITY
 
-## Maps in R
+|                  | Desktop GIS (GUI) <br> ArcGIS, Quantum GIS  | Scripting <br> {{< fa brands r-project >}}, Python^[rasterio library is similar to terra] |
+|------------------|--------------------------|-----------------------|
+| Home disciplines | Geography                | Computing, Statistics |
+| Software focus   | Graphical User Interface | Command line          |
+| Reproducibility  | Minimal                  | **Maximal**           |
 
-{{< fa brands r-project >}}
+<!-- from https://r.geocompx.org/intro -->
+
+<br>
+#### {{< fa brands r-project >}} packages
+
+In this tutorial we will see how to use `terra`, `sf`, and `mapview`.   
+
+Other interesting packages:   
+
+- `mapsf` and `tmap`: creates nice looking maps  
+- `exactextractr` : fast extraction on large raster  
+
+Recently deprecated {{< fa brands r-project >}} packages (end of 2023) : `sp`, `raster`, `rgdal`, `rgeos`, `maptools`
+
+<!--
+:::: {.columns}
+::: {.column width="30%"}
+**Abiotic data**
+
+- `geodata`
+- `sdmpredictors`
+- `marmap`
+- `rnoaa`
+- `rWBclimate`
+    
+::: 
+
+::: {.column width="30%"}
+**Biotic data**
+
+- `rgbif`
+- `robis`
+- `spocc`
+
+::: 
+
+::: {.column width="30%"}
+**Base maps**
+
+- `rnaturalearth`
+- `osmdata`
+- `ggmap`
+- `mregions`
+    
+::: 
+
+::::
+-->
+
+## Summary of key functions in `terra`
+
+:::: {.columns}
+
+::: {.column width="30%"}
+### Vector
+
+```{r}
+#| eval: false
+#| echo: true
+# read
+vector <- vect("my_polygons.gpkg")
+
+# write
+writeVector()
+
+# calculate distance for lines or perimeter for polygons
+perim(vector)
+
+# calculate area for polygons
+expanse(vector)
+
+# calculate distance between objects
+distance(vector)
+
+# create buffers around objects()
+buffer()
+
+intersect()
+
+# transform vector to raster format
+rasterize(vector)
+```
+
+:::
+
+::: {.column width="30%" .fragment fragment-index=2}
+
+<br>
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+# coordinate reference system
+crs()
+
+# extent of the spatial object (xmin, xmax, ymin, ymax)
+ext()
+
+# getting the dimensions of the spatial object
+dim()
+
+# projection to different CRS
+project()
+
+# making a simple map
+plot()
+
+# extracting the raster values at the vector locations
+extract(vector, raster)
+
+crop()
+
+mask()
+```
+
+::: 
+
+::: {.column width="30%" .fragment fragment-index=1}
+### Raster
+
+```{r}
+#| eval: false
+#| echo: true
+raster <- rast("my_raster.tif")
+
+# resolution of the raster
+res(raster)
+
+# 
+aggregate(raster)
+resample()
+
+as.line(), as.polygon()
+```
+
+::: 
+
+::::
+
+## Short introduction to mapview
+
+Make incremental map in two columns
 
 
-## Program of the workshop
+# Your turn
+<br>
+<https://frbcesab.github.io/spatial-r/>
+
+
+<!-- missing: where to get the data? -->

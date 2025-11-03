@@ -5,7 +5,6 @@ project:
   render:
     - "index.qmd"
     - "intro-GIS.qmd"
-    - "data-GIS.qmd"
 
 execute: 
   freeze: false

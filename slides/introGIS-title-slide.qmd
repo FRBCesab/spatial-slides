@@ -4,7 +4,7 @@
 
 <!-- Title slide logo -->
 ::: {.column .logo width="32%"}
-![](img/logo-dataenv-title.png)
+![](img/spatialr_logo01b.png)
 :::
 
 <!-- Title slide content -->
@@ -15,7 +15,7 @@ Spatial analysis with R
 :::
 
 ::: {.subtitle}
-introduction to GIS
+Introduction to GIS for ecologists
 :::
 
 ::: {.date}
@@ -39,9 +39,11 @@ Romain Frelat<br/>
 :::
 
 ::: {.column .author width="32%"}
+<!--
 Nicolas Casajus<br/>
 [{{< fa envelope >}}](mailto:rdev.nc@gmail.com)
 [{{< fa brands github >}}](https://github.com/ahasverus)
+-->
 :::
 
 ::::
@@ -49,7 +51,7 @@ Nicolas Casajus<br/>
 :::: {.columns .affiliations}
 
 ::: {.column .affiliation width="32%"}
-Data scientists
+Data scientist
 <br/>
 <code>@ FRB-CESAB</code>
 &nbsp;
