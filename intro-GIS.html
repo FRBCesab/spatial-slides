@@ -29,6 +29,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-7fa7da01b5331223ad9f9feddb69d05b.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -134,26 +200,30 @@
 <div class="title-slide-content">
 <div class="columns">
 <!-- Title slide logo --><div class="column logo" style="width:32%;">
-<p><img data-src="img/logo-dataenv-title.png"></p>
+<p><img data-src="img/spatialr_logo01b.png"></p>
 </div><!-- Title slide content --><div class="column information" style="width:68%;">
 <div class="title">
 <p>Spatial analysis with R</p>
 </div>
 <div class="subtitle">
-<p>introduction to GIS</p>
+<p>Introduction to GIS for ecologists</p>
 </div>
 <div class="date">
-<p>October 2025</p>
+<p>November 2025</p>
 </div>
 <div class="columns authors">
 <div class="column author" style="width:32%;">
 <p>Romain Frelat<br> <a href="mailto:romain.frelat@fondationbiodiversite.fr"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> <a href="https://github.com/rfrelat"><i class="fa-brands fa-github" aria-label="github"></i></a></p>
 </div><div class="column author" style="width:32%;">
-<p>Nicolas Casajus<br> <a href="mailto:rdev.nc@gmail.com"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> <a href="https://github.com/ahasverus"><i class="fa-brands fa-github" aria-label="github"></i></a></p>
+<!--
+Nicolas Casajus<br/>
+[](mailto:rdev.nc@gmail.com)
+[](https://github.com/ahasverus)
+-->
 </div></div>
 <div class="columns affiliations">
 <div class="column affiliation" style="width:32%;">
-<p>Data scientists <br> <code>@ FRB-CESAB</code> &nbsp; <a href="https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/"><i class="fa-solid fa-globe" aria-label="globe"></i></a> &nbsp; <a href="https://github.com/frbcesab"><i class="fa-brands fa-github" aria-label="github"></i></a></p>
+<p>Data scientist <br> <code>@ FRB-CESAB</code> &nbsp; <a href="https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/"><i class="fa-solid fa-globe" aria-label="globe"></i></a> &nbsp; <a href="https://github.com/frbcesab"><i class="fa-brands fa-github" aria-label="github"></i></a></p>
 </div><!-- Close {.column .affiliations} -->
 </div>
 <!-- Close {.column .information} -->
@@ -164,81 +234,562 @@
 <!-- Close {.title-slide-container} -->
 </div>
 </section>
-<section id="what-is-geographic-information-system-gis" class="slide level2">
-<h2>What is Geographic Information System (GIS)?</h2>
+<section id="objectives" class="slide level2">
+<h2>Objectives</h2>
+<ul>
+<li>Feel more comfortable to work with spatial data<br>
+</li>
+<li>Load spatial data in R and visualize it</li>
+<li>Extract information from remote sensing or model dataset</li>
+<li>Take advantage of the numerous databases that are available online</li>
+</ul>
+</section>
+<section id="schedule" class="slide level2">
+<h2>Schedule</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>9.00 – 9.30 am <br></td>
+<td>Introduction</td>
+</tr>
+<tr class="even">
+<td>9.30 – 12.00 am <br></td>
+<td>Tutorials on handling vectors data type: <br> <a href="https://frbcesab.github.io/spatial-r/chapters/11_points.html">points</a>, <a href="https://frbcesab.github.io/spatial-r/chapters/12_lines.html">lines</a>, and <a href="https://frbcesab.github.io/spatial-r/chapters/13_polygons.html">polygons</a></td>
+</tr>
+<tr class="odd">
+<td>12.00 – 1.30 pm</td>
+<td>Lunch break</td>
+</tr>
+<tr class="even">
+<td>1.30 – 4 pm <br></td>
+<td>Tutorials on handling <a href="https://frbcesab.github.io/spatial-r/chapters/21_rasters.html">raster data type</a>,<br> <a href="https://frbcesab.github.io/spatial-r/chapters/22_multilayer.html">high dimensioinal rasters</a>, and <a href="https://frbcesab.github.io/spatial-r/chapters/23_grid.html">make a grid</a></td>
+</tr>
+</tbody>
+</table>
+<!-- Add output from the workshop in three columns: 
+21_rasters//figure-html/ex1-1.png
+22_multilayer_files/figure-html/rast_transform-1.png
+23_grid_files/figure-html/mask-1.png
+-->
 <div class="columns">
-<div class="column fragment" style="width:60%;">
-<p><img data-src="img/GIS_illu_CC0.JPG" style="width:100.0%"></p>
+<div class="column" style="width:30%;">
+<p><img data-src="https://frbcesab.github.io/spatial-r/chapters/13_polygons_files/figure-html/sfmap_line-1.png" style="width:100.0%"></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="https://github.com/FRBCesab/spatial-r/raw/main/_freeze/chapters/13_polygons/figure-html/map_buffer_sf-1.png" style="width:100.0%"></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="https://frbcesab.github.io/spatial-r/chapters/21_rasters_files/figure-html/visu_pts_rast-1.png" style="width:100.0%"></p>
+</div></div>
+<blockquote>
+<p>It’s a practical workshop, you will work in front of the screen, so <strong>don’t forget to take breaks</strong> !</p>
+</blockquote>
+</section>
+<section>
+<section id="what-is-geographic-information-system-gis" class="title-slide slide level1 center">
+<h1>What is Geographic Information System (GIS)?</h1>
+
+</section>
+<section id="geographic-information-system" class="slide level2">
+<h2>Geographic Information System</h2>
+<blockquote>
+<p>A geographic information system (GIS) consists of integrated computer hardware and software that store, manage, analyze, edit, output, and visualize geographic data. (Wikipedia)</p>
+</blockquote>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/GIS_illu_CCO.JPG" style="height:5.0%"></p>
 </div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment">softwares to handle <strong>spatial data</strong></li>
+<li class="fragment">data stored with their <strong>coordinates</strong></li>
+<li class="fragment">defined by their <strong>projection systems</strong></li>
+</ul>
+<p><br></p>
+<div class="fragment">
+<p>Two key concepts in GIS:</p>
+<ul>
+<li><strong>Coordinate Reference Systems (CRS)</strong></li>
+<li>data type: <strong>raster vs vector</strong></li>
+</ul>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="coordinate-reference-systems" class="title-slide slide level1 center">
+<h1>Coordinate Reference Systems</h1>
+<!-- https://annakrystalli.me/intro-r-gis/gis.html -->
+</section>
+<section id="all-maps-are-wrong" class="slide level2">
+<h2>All maps are wrong</h2>
+<iframe width="784" height="441" src="https://www.youtube-nocookie.com/embed/kIID5FDi2JQ?si=OE-CA07hq7URVkWK" title="All maps are wrong" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<!-- Another cool video, very old school and in French: La carte impossible (1947), Evelyn Lambart 
+<iframe src="https://www.onf.ca/film/carte_impossible/embed/player/" width="516" height="290" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+-->
+</section>
+<section id="there-are-many-many-projections" class="slide level2">
+<h2>There are many, many projections</h2>
+<iframe width="75%" height="540" frameborder="0" src="https://observablehq.com/embed/@d3/projection-transitions?cells=viewof+projection%2Cviewof+context">
+</iframe>
+<!-- 
+or without attribution
+<iframe width="100%" height="719" frameborder="0"
+  src="https://observablehq.com/embed/@d3/projection-transitions?cells=viewof+projection%2Cviewof+context&banner=false"></iframe> 
+
+or video from NASA
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EWU26jetYnA?si=6Dd29DmHl8xaYoAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+-->
+</section>
+<section id="the-most-commun-projection-systems" class="slide level2">
+<h2>The most commun projection systems</h2>
+<blockquote>
+<p>One system to code them all: <a href="https://epsg.io/">EPSG</a><sup>1</sup></p>
+</blockquote>
+<p>The projection system will depend on the objective and the spatial extent.</p>
+<div class="columns">
+<div class="column fragment" style="width:45%;">
+<p><strong>Local</strong></p>
+<ul>
+<li>France: <br> Lambert 93, conformal conic projection <a href="https://epsg.io/2154">EPSG:2154</a></li>
+<li>Europe: <br> Lambert azimuthal equal-area <a href="https://epsg.io/3035">EPSG:3035</a></li>
+<li>Other: Universal Transverse Mercator (UTM), e.g.&nbsp;32N for Western Europe <a href="https://epsg.io/25832">EPSG:25832</a> <!-- Polar regions : *prefer azimutal projection* --></li>
+</ul>
+</div><div class="column fragment" style="width:45%;">
+<p><strong>World</strong></p>
+<ul>
+<li>geographic lat/long WGS84 <a href="https://epsg.io/4326">EPSG:4326</a> used in GPS</li>
+<li>Pseudo-Mercator <a href="https://epsg.io/3857">EPSG:3857</a> used by GoogleMap, OpenStreetMap, leaflet, …</li>
+<li>many others (Winkel tripel <a href="https://epsg.io/53042">EPSG:53042</a>, Robinson <a href="https://epsg.io/54030">EPSG:54030</a>, …)</li>
+</ul>
+</div></div>
+
+<!-- 
+maybe mention old PROJ system, which is more readable, more flexible, yet more complex
+and https://crs-explorer.proj.org/ for choosing the right CRS
+
+add xkcd image : political
+-->
+<aside><div>
+<p>ESRI made a long list <a href="https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data">here</a> with their properties equal area, equidistant or conformal (= conserve angles).</p>
+<p>EPSG summarize in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.</p>
+</div><ol class="aside-footnotes"><li id="fn1"><p>European Petroleum Survey Group</p></li></ol></aside></section>
+<section id="world-projection-systems-are-political" class="slide level2">
+<h2>World projection systems are political</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/map_projection_xkcd.com977.png" style="width:100.0%"></p>
+<figcaption><a href="https://xkcd.com/977">xkcd.com/977</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="when-and-why-must-you-care-about-projection-systems" class="slide level2">
+<h2>When and why must you care about projection systems?</h2>
+<p><br></p>
+<h4 id="crossing-multiple-spatial-data-from-different-sources">Crossing multiple spatial data from different sources</h4>
+<ul>
+<li>Keep track of the projection system of your observation data</li>
+<li>Make sure all datasets share the same projection system or project them</li>
+</ul>
+<p><br></p>
+<div class="fragment">
+<h4 id="calculating-distances-or-areas">Calculating distances, or areas<sup>1</sup></h4>
+<ul>
+<li>use appropriate projection system (e.g.&nbsp;equal-area for areas or equidistant for distances)</li>
+<li>the projection system will define the unit</li>
+</ul>
+</div>
+<!-- add a slide commun issue 
+but not with `sf`, unless s2 deactivated, calculation with s2 makes issue, not intuitive
+-->
+<aside><ol class="aside-footnotes"><li id="fn2"><p><code>terra</code> now uses spherical calculation by default using lat/long coordinates</p></li></ol></aside></section></section>
+<section>
+<section id="two-world-views-raster-vs-vector" class="title-slide slide level1 center">
+<h1>Two world views: Raster vs Vector</h1>
+<!-- https://gisgeography.com/spatial-data-types-vector-raster/ -->
+</section>
+<section id="vector-vs-raster-data-type" class="slide level2">
+<h2>Vector vs Raster data type</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="vector">Vector</h3>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li>Points, Lines or Polygons</li>
+<li>Conserve shape and spatial accuracy</li>
+<li>Good for GPS observations, patches, boundaries, …</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="4">
+<ul>
+<li>Rivers</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="10">
+<ul>
+<li>Protected areas</li>
+</ul>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/vector-raster.png" style="width:100.0%"></p>
+<div class="fragment fade-in-then-out center" data-fragment-index="3,">
+<p>Rivers ?</p>
+</div>
+<div class="fragment fade-in-then-out center" data-fragment-index="5,">
+<p>Vegetation index (e.g.&nbsp;NDVI)?</p>
+</div>
+<div class="fragment fade-in-then-out center" data-fragment-index="7,">
+<p>Elevation ?</p>
+</div>
+<div class="fragment fade-in-then-out center" data-fragment-index="9,">
+<p>Protected areas ?</p>
+</div>
+<div class="fragment fade-in-then-out center" data-fragment-index="11,">
+<p>Land use-land cover ?</p>
+</div>
+</div><div class="column" style="width:30%;">
+<h3 id="raster">Raster</h3>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li>Matrix, regular grid with equidistant cells</li>
+<li>Spatial resolution = cell size</li>
+<li>Format for satellite data, model output, …</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="6">
+<ul>
+<li>Vegetation index (e.g.&nbsp;NDVI)</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="8">
+<ul>
+<li>Elevation</li>
+</ul>
+</div>
+</div></div>
+<!-- 
+Scale (1/250000) vs resolution (250m, 0.1 degree)
+Carefull, opposite to intuition
+small scale (1:1000000) = large extent and low spatial resolution
+large scale (1:50000) = small extent and high spatial resolution
+-->
+</section>
+<section id="vector-vs-raster-file-format" class="slide level2">
+<h2>Vector vs Raster file format</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="vector-1">Vector</h3>
+<ul>
+<li><strong>Geopackage</strong>(.gpkg) <br> open format based on SQLite</li>
+<li>ESRI shapefile (.shp) <br> historical format from ESRI. <br> Multiple files (dbf, shx, shp, prj)</li>
+<li>GPS Exchange Format (.gpx) <br> XML file designed for GPS data</li>
+<li>geojson (.geojson) <br> plain text file, used in web API but limited to WGS84</li>
+<li>Google Earth (.kml)</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/vector-raster.png" style="width:100.0%"></p>
+</div><div class="column fragment" style="width:30%;">
+<h3 id="raster-1">Raster</h3>
+<ul>
+<li><strong>GeoTIFF</strong> (.tif) <br> the standard format. Can store multiple “bands”.</li>
+<li>NetCDF (.nc) <br> for storing multi-dimensional, array-oriented variables</li>
+<li>ASCII Grid (.asc) <br> simple text files</li>
+<li>GRIdded Binary (.grb), WMO standard</li>
+<li>Imagine (.img) ERDAS file format</li>
+</ul>
+</div></div>
+<!-- https://www.ecologi.st/spatial-r/gis-data-models-and-file-formats.html -->
+</section></section>
+<section>
+<section id="where-to-find-spatial-data" class="title-slide slide level1 center">
+<h1>Where to find spatial data?</h1>
+
+</section>
+<section id="data-sources" class="slide level2">
+<h2>Data sources</h2>
+<p><br> <br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>France</strong> <br></p>
+<ul>
+<li><a href="https://geoservices.ign.fr/catalogue">IGN</a></li>
+<li><a href="https://www.data.gouv.fr/fr/datasets/">data.gouv.fr</a></li>
+<li><a href="https://www.sandre.eaufrance.fr/atlas/srv/fre/catalog.search#/home">Sandre</a> <!-- 
+Theia ? 
+--></li>
+</ul>
+</div><div class="column fragment" style="width:33%;">
+<p><strong>Europe</strong> <br></p>
+<ul>
+<li>Copernicus: <a href="https://land.copernicus.eu/en/products">land</a>, <a href="https://cds.climate.copernicus.eu/datasets">climate</a>, <a href="https://data.marine.copernicus.eu/products">marine</a></li>
+<li><a href="https://data.jrc.ec.europa.eu/dataset">EU JRC</a></li>
+<li><a href="https://www.eea.europa.eu/en/datahub">EU Env. Agency</a></li>
+<li><a href="https://ecodatacube.eu/">EcoDataCube</a></li>
+</ul>
+</div><div class="column fragment" style="width:33%;">
+<p><strong>World</strong> <br></p>
+<ul>
+<li><a href="https://www.earthenv.org/">EarthEnv</a>(terrestrial, 1km)</li>
+<li><a href="https://bio-oracle.org/">Bio-Oracle</a>(marine, 0.05°)</li>
+</ul>
 <p><br></p>
 <ul>
-<li><strong>softwares to handle spatial data</strong></li>
-<li><strong>data stored with their coordinates</strong></li>
-<li><strong>defined projection system</strong></li>
+<li><a href="https://developers.google.com/earth-engine/datasets/catalog">Google Earth Engine</a></li>
+<li><a href="https://openlandmap.org/">OpenLandMap</a></li>
 </ul>
 </div></div>
 </section>
-<section id="coordinates" class="slide level2">
-<h2>Coordinates</h2>
-<p>image round earth and lat/long</p>
-</section>
-<section id="projection" class="slide level2">
-<h2>Projection</h2>
-<p>video?</p>
-</section>
-<section id="projection-1" class="slide level2">
-<h2>Projection</h2>
-<blockquote>
-<p>There is no perfect projection.</p>
-</blockquote>
-<p>The projection system will depend on the objective and the spatial extent.</p>
-<p><strong>Equi:</strong> - distant, equidistant - area - equalarea - azimut, conformal</p>
-<p>Every country has one (or many) reference projection system(s), a long list <a href="https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data">here</a>. <a href="https://www.esri.com/arcgis-blog/products/arcgis-pro/analytics/geodesic-or-planar-which-to-use-for-distance-analysis" class="uri">https://www.esri.com/arcgis-blog/products/arcgis-pro/analytics/geodesic-or-planar-which-to-use-for-distance-analysis</a> One system to name them all: <a href="https://epsg.io/">EPSG</a></p>
-<p>Main issue if you study large areas, or polar regions.</p>
-</section>
-<section id="the-most-commun-projection-system" class="slide level2">
-<h2>The most commun projection system</h2>
-<p>table France Europe World:<br>
-- World Geodetic System 1984, <a href="https://epsg.io/4326">EPSG:4326</a> - Google, OSM, WGS 84 / Pseudo-Mercator <a href="https://epsg.io/3857">EPSG:3857</a></p>
-<p>Local map: <a href="https://gisgeography.com/utm-universal-transverse-mercator-projection/">UTM</a></p>
-</section>
-<section id="when-must-you-care-about-projection" class="slide level2">
-<h2>When must you care about projection?</h2>
-<p><strong>Crossing information from different source</strong> - Make sure the projection system are the same, else project</p>
-<p><strong>Calculating distances, or areas</strong> use appropriate projection system (e.g.&nbsp;equalarea for areas)*</p>
+<section id="topics" class="slide level2">
+<h2>Topics</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Climate</strong></p>
 <ul>
-<li><code>terra</code> now indicates that most precise calculation are spherical with lat/long coordinates ** but not with <code>sf</code>, unless s2 deactivated, calculation with s2 makes issue, not intuitive *** be carefull of the unit too!</li>
+<li><a href="https://www.worldclim.org/">WorldClim</a></li>
+<li><a href="https://chelsa-climate.org/">Chelsa</a></li>
+<li><a href="https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview">ERA5</a> (reanalysis, World)</li>
+<li><a href="https://surfobs.climate.copernicus.eu/dataaccess/access_eobs.php#datafiles">E-OBS</a> (observation, Europe)</li>
 </ul>
+</div><div class="column fragment" style="width:33%;">
+<p><strong>Land cover</strong></p>
+<ul>
+<li><a href="https://land.copernicus.eu/en/products/clc-backbone">Corine LC</a></li>
+<li><a href="https://esa-worldcover.org/en">ESA WorldCover</a></li>
+<li><a href="https://cds.climate.copernicus.eu/datasets/satellite-land-cover?tab=download">ESA Climate Change Initiative</a></li>
+<li><a href="https://essd.copernicus.org/articles/16/1353/2024/">GLFC_FCS30D</a></li>
+</ul>
+</div><div class="column fragment" style="width:33%;">
+<p><strong>Soil</strong></p>
+<ul>
+<li><a href="https://www.isric.org/explore/soilgrids">ISRIC Soil Grids</a> (250m)</li>
+<li><a href="https://gaez.fao.org/pages/hwsd">FAO Harmonized World Soil Database (HWSD)</a>(1km)</li>
+<li><a href="https://esdac.jrc.ec.europa.eu/resource-type/european-soil-database-soil-properties">European Soil Database (ESDAC)</a> <!-- [BDGSF](https://entrepot.recherche.data.gouv.fr/dataverse/bdgsf) (France) --></li>
+</ul>
+</div></div>
+<p><br></p>
+<div class="columns">
+<div class="column fragment" style="width:33%;">
+<p><strong>Elevation and bathymetry</strong></p>
+<ul>
+<li><a href="https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM">Copernicus DEM GLO 30</a><br>
+</li>
+<li><a href="https://www.earthdata.nasa.gov/data/instruments/srtm">SRTM</a><br>
+</li>
+<li><a href="https://www.gebco.net/data-products/gridded-bathymetry-data">GEBCO</a></li>
+<li><a href="https://portal.opentopography.org/">OpenTopography</a></li>
+</ul>
+</div><div class="column fragment" style="width:33%;">
+<p><strong>Biomes and Ecoregions</strong></p>
+<ul>
+<li><a href="https://gaez.fao.org/">FAO Global Agro-Ecological Zones</a></li>
+<li><a href="https://springernature.figshare.com/collections/High-resolution_1_km_K_ppen-Geiger_maps_for_1901_2099_based_on_constrained_CMIP6_projections/6395666/1">Koppen-Geiger climate maps</a></li>
+<li><a href="https://zenodo.org/records/5848610">Copernicus Global Biomes</a></li>
+<li>WWF Ecoregions <a href="https://www.worldwildlife.org/publications/terrestrial-ecoregions-of-the-world">Terrestrial</a> and <a href="https://www.worldwildlife.org/publications/marine-ecoregions-of-the-world-a-bioregionalization-of-coastal-and-shelf-areas">Marine</a></li>
+</ul>
+</div><div class="column fragment" style="width:33%;">
+<p><strong>Population density</strong></p>
+<ul>
+<li><a href="https://www.worldpop.org/">WorldPop</a></li>
+<li><a href="https://www.earthdata.nasa.gov/data/projects/gpw">NASA Gridded Population of the World (GPW)</a></li>
+<li><a href="https://data.jrc.ec.europa.eu/dataset/2ff68a52-5b5b-4a22-8f40-c41da8332cfe">JRC Global Human Settlement</a></li>
+</ul>
+</div></div>
+<p><br></p>
 </section>
-<section id="two-world-views-raster-vs-vector" class="slide level2">
-<h2>Two world views: Raster vs Vector</h2>
-<!-- https://gisgeography.com/spatial-data-types-vector-raster/ -->
-</section>
-<section id="data-format" class="slide level2">
-<h2>Data format</h2>
-<p>raster vs vector</p>
-<p>vector: <strong>Geopackage</strong> is most recommended (and it can host raster too)</p>
-<p>ESRI shapefile | shp | format from ESRI ArcGIS | (+): very commun, lightweight (-): multiple files (dbf, shx, shp, prj), transform variable names (10 characters) kml |kml | Google Earth file | (+): good for GoogleEarth (-) Google Geopackage |gkpd| open format based on SQLite | (+): respect the format of original data, geojson | geojson | plain text | (+) can be open and edited by hand, good for web API (-) only WGS84 supported, heavier storage size GPS Exchange Format (GPX) |.gpx| is an XML schema designed for transferring GPS data between applications.</p>
-<p>raster: <strong>tif or nc</strong></p>
-<p>Network Common Data Form(NetCDF) |.nc| storing multi-dimensional, array-oriented variables GRIdded Binary (GRIB) | .grb| standard by the WMO, multidimensional file with the advantages of self-description, flexibility and expandability. GeoTIFF |.tif| the image standard file for GIS and satellite remote sensing applications. It can store multiple realisations as “bands”. GeoTIFFs can be accompanied by other auxiliary files (.tfw for raster geolocation, .xml for metadata, .aux for projections and others, .ovr for pyramids to improve visualisation). ASCII Grid | .asc| ASCII Grid files are simple text files that represent raster data</p>
-</section>
-<section id="r-packages" class="slide level2">
-<h2>R packages</h2>
-<p>raster vs vector</p>
+<section id="keeping-track-of-new-spatial-data" class="slide level2">
+<h2>Keeping track of new spatial data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/MetaGIS_01.png" style="width:100.0%"></p>
+<figcaption><a href="https://docs.google.com/spreadsheets/d/1OW6X94Ha_-_v5fe8XJlQp7ncubgF1CG6LgAIUk1kFcY/edit?gid=1637976342#gid=1637976342">MetaGIS</a></figcaption>
+</figure>
+</div>
+<!--
+<h1 align="center">
+  <a href="https://docs.google.com/spreadsheets/d/1OW6X94Ha_-_v5fe8XJlQp7ncubgF1CG6LgAIUk1kFcY/edit?gid=1637976342#gid=1637976342"><img src="img/MetaGIS_01.png" alt="Env" width="200"></a>
+  <br>[MetaGIS](https://docs.google.com/spreadsheets/d/1OW6X94Ha_-_v5fe8XJlQp7ncubgF1CG6LgAIUk1kFcY/edit?gid=1637976342#gid=1637976342)<br>
+</h1>
+-->
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p>It could be a common effort</p>
+<p><br></p>
+<p>Don’t hesitate to populate it</p>
+<p><br> Share it with colleagues : <a href="https://frbcesab.github.io/terrameta/">terrameta</a></p>
+</div></div>
+</section></section>
+<section>
+<section id="r-as-a-gis-tool" class="title-slide slide level1 center">
+<h1>R as a GIS tool</h1>
+
 </section>
 <section id="is-r-a-good-gis-software" class="slide level2">
 <h2>Is R a good GIS software?</h2>
-<p>REPRODUCIBILITY</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 38%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Desktop GIS (GUI) <br> ArcGIS, Quantum GIS</th>
+<th>Scripting <br> <i class="fa-brands fa-r-project" aria-label="r-project"></i>, Python<sup>1</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Home disciplines</td>
+<td>Geography</td>
+<td>Computing, Statistics</td>
+</tr>
+<tr class="even">
+<td>Software focus</td>
+<td>Graphical User Interface</td>
+<td>Command line</td>
+</tr>
+<tr class="odd">
+<td>Reproducibility</td>
+<td>Minimal</td>
+<td><strong>Maximal</strong></td>
+</tr>
+</tbody>
+</table>
+<!-- from https://r.geocompx.org/intro -->
+<p><br> #### <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages</p>
+<p>In this tutorial we will see how to use <code>terra</code>, <code>sf</code>, and <code>mapview</code>.</p>
+<p>Other interesting packages:</p>
+<ul>
+<li><code>mapsf</code> and <code>tmap</code>: creates nice looking maps<br>
+</li>
+<li><code>exactextractr</code> : fast extraction on large raster</li>
+</ul>
+<p>Recently deprecated <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages (end of 2023) : <code>sp</code>, <code>raster</code>, <code>rgdal</code>, <code>rgeos</code>, <code>maptools</code></p>
+<!--
+:::: {.columns}
+::: {.column width="30%"}
+**Abiotic data**
+
+- `geodata`
+- `sdmpredictors`
+- `marmap`
+- `rnoaa`
+- `rWBclimate`
+    
+::: 
+
+::: {.column width="30%"}
+**Biotic data**
+
+- `rgbif`
+- `robis`
+- `spocc`
+
+::: 
+
+::: {.column width="30%"}
+**Base maps**
+
+- `rnaturalearth`
+- `osmdata`
+- `ggmap`
+- `mregions`
+    
+::: 
+
+::::
+-->
+<aside><ol class="aside-footnotes"><li id="fn3"><p>rasterio library is similar to terra</p></li></ol></aside></section>
+<section id="summary-of-key-functions-in-terra" class="slide level2">
+<h2>Summary of key functions in <code>terra</code></h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="vector-2">Vector</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># read</span></span>
+<span id="cb1-2"><a></a>vector <span class="ot">&lt;-</span> <span class="fu">vect</span>(<span class="st">"my_polygons.gpkg"</span>)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># write</span></span>
+<span id="cb1-5"><a></a><span class="fu">writeVector</span>()</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="co"># calculate distance for lines or perimeter for polygons</span></span>
+<span id="cb1-8"><a></a><span class="fu">perim</span>(vector)</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># calculate area for polygons</span></span>
+<span id="cb1-11"><a></a><span class="fu">expanse</span>(vector)</span>
+<span id="cb1-12"><a></a></span>
+<span id="cb1-13"><a></a><span class="co"># calculate distance between objects</span></span>
+<span id="cb1-14"><a></a><span class="fu">distance</span>(vector)</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a><span class="co"># create buffers around objects()</span></span>
+<span id="cb1-17"><a></a><span class="fu">buffer</span>()</span>
+<span id="cb1-18"><a></a></span>
+<span id="cb1-19"><a></a><span class="fu">intersect</span>()</span>
+<span id="cb1-20"><a></a></span>
+<span id="cb1-21"><a></a><span class="co"># transform vector to raster format</span></span>
+<span id="cb1-22"><a></a><span class="fu">rasterize</span>(vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column fragment" data-fragment-index="2" style="width:30%;">
+<p><br></p>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># coordinate reference system</span></span>
+<span id="cb2-2"><a></a><span class="fu">crs</span>()</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="co"># extent of the spatial object (xmin, xmax, ymin, ymax)</span></span>
+<span id="cb2-5"><a></a><span class="fu">ext</span>()</span>
+<span id="cb2-6"><a></a></span>
+<span id="cb2-7"><a></a><span class="co"># getting the dimensions of the spatial object</span></span>
+<span id="cb2-8"><a></a><span class="fu">dim</span>()</span>
+<span id="cb2-9"><a></a></span>
+<span id="cb2-10"><a></a><span class="co"># projection to different CRS</span></span>
+<span id="cb2-11"><a></a><span class="fu">project</span>()</span>
+<span id="cb2-12"><a></a></span>
+<span id="cb2-13"><a></a><span class="co"># making a simple map</span></span>
+<span id="cb2-14"><a></a><span class="fu">plot</span>()</span>
+<span id="cb2-15"><a></a></span>
+<span id="cb2-16"><a></a><span class="co"># extracting the raster values at the vector locations</span></span>
+<span id="cb2-17"><a></a><span class="fu">extract</span>(vector, raster)</span>
+<span id="cb2-18"><a></a></span>
+<span id="cb2-19"><a></a><span class="fu">crop</span>()</span>
+<span id="cb2-20"><a></a></span>
+<span id="cb2-21"><a></a><span class="fu">mask</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column fragment" data-fragment-index="1" style="width:30%;">
+<h3 id="raster-2">Raster</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>raster <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"my_raster.tif"</span>)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="co"># resolution of the raster</span></span>
+<span id="cb3-4"><a></a><span class="fu">res</span>(raster)</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a><span class="co"># </span></span>
+<span id="cb3-7"><a></a><span class="fu">aggregate</span>(raster)</span>
+<span id="cb3-8"><a></a><span class="fu">resample</span>()</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a><span class="fu">as.line</span>(), <span class="fu">as.polygon</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
 </section>
-<section id="maps-in-r" class="slide level2">
-<h2>Maps in R</h2>
-<p><i class="fa-brands fa-r-project" aria-label="r-project"></i></p>
-</section>
-<section id="program-of-the-workshop" class="slide level2">
-<h2>Program of the workshop</h2>
+<section id="short-introduction-to-mapview" class="slide level2">
+<h2>Short introduction to mapview</h2>
+<p>Make incremental map in two columns</p>
+</section></section>
+<section id="your-turn" class="title-slide slide level1 center">
+<h1>Your turn</h1>
+<p><br> <a href="https://frbcesab.github.io/spatial-r/" class="uri">https://frbcesab.github.io/spatial-r/</a></p>
+<!-- missing: where to get the data? -->
 
 
 </section>
+
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="img/cesab-logo.png" class="slide-logo"></p>
