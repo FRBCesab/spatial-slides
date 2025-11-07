@@ -4,7 +4,7 @@
     "href": "intro-GIS.html#objectives",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Objectives",
-    "text": "Objectives\n\nFeel more comfortable to work with spatial data\n\nLoad spatial data in R and visualize it\nExtract information from remote sensing or model dataset\nTake advantage of the numerous databases that are available online"
+    "text": "Objectives\n\n\n\nFeel more comfortable to work with spatial data\n\nLoad spatial data in R and visualize it\nExtract information from remote sensing or model dataset\nTake advantage of the numerous databases that are available online"
   },
   {
     "objectID": "intro-GIS.html#schedule",
@@ -39,14 +39,7 @@
     "href": "intro-GIS.html#the-most-commun-projection-systems",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "The most commun projection systems",
-    "text": "The most commun projection systems\n\nOne system to code them all: EPSG1\n\nThe projection system will depend on the objective and the spatial extent.\n\n\nLocal\n\nFrance:  Lambert 93, conformal conic projection EPSG:2154\nEurope:  Lambert azimuthal equal-area EPSG:3035\nOther: Universal Transverse Mercator (UTM), e.g. 32N for Western Europe EPSG:25832 \n\n\nWorld\n\ngeographic lat/long WGS84 EPSG:4326 used in GPS\nPseudo-Mercator EPSG:3857 used by GoogleMap, OpenStreetMap, leaflet, …\nmany others (Winkel tripel EPSG:53042, Robinson EPSG:54030, …)\n\n\n\n\n\nESRI made a long list here with their properties equal area, equidistant or conformal (= conserve angles).\nEPSG summarize in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.\nEuropean Petroleum Survey Group"
-  },
-  {
-    "objectID": "intro-GIS.html#world-projection-systems-are-political",
-    "href": "intro-GIS.html#world-projection-systems-are-political",
-    "title": "FRB-CESAB workshop on spatial data analysis in R",
-    "section": "World projection systems are political",
-    "text": "World projection systems are political\n\n\n\nxkcd.com/977"
+    "text": "The most commun projection systems\n\nOne system to code them all: EPSG1\n\nThe projection system will depend on the objective and the spatial extent.\n\n\nLocal\n\nFrance:  Lambert 93, conformal conic projection EPSG:2154\nEurope:  Lambert azimuthal equal-area EPSG:3035\nOther: Universal Transverse Mercator (UTM), e.g. 32N for Western Europe EPSG:25832 \n\n\nWorld\n\ngeographic lat/long WGS84 EPSG:4326 used in GPS\nPseudo-Mercator EPSG:3857 used by GoogleMap, OpenStreetMap, leaflet, …\nmany others (Winkel Tripel EPSG:53042, Robinson EPSG:54030, Mollweide EPSG:54009)\n\n\n\n\n\nESRI made a long list here with their properties equal area, equidistant or conformal (= conserve angles).\nEPSG summarize in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.\nEuropean Petroleum Survey Group"
   },
   {
     "objectID": "intro-GIS.html#when-and-why-must-you-care-about-projection-systems",
@@ -60,14 +53,14 @@
     "href": "intro-GIS.html#vector-vs-raster-data-type",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Vector vs Raster data type",
-    "text": "Vector vs Raster data type\n\n\nVector\n\n\nPoints, Lines or Polygons\nConserve shape and spatial accuracy\nGood for GPS observations, patches, boundaries, …\n\n\n\n\nRivers\n\n\n\n\nProtected areas\n\n\n\n\n\nRivers ?\n\n\nVegetation index (e.g. NDVI)?\n\n\nElevation ?\n\n\nProtected areas ?\n\n\nLand use-land cover ?\n\n\nRaster\n\n\nMatrix, regular grid with equidistant cells\nSpatial resolution = cell size\nFormat for satellite data, model output, …\n\n\n\n\nVegetation index (e.g. NDVI)\n\n\n\n\nElevation"
+    "text": "Vector vs Raster data type\n\n\nVector\n\n\nPoints, Lines or Polygons\nConserve shape and spatial accuracy\nGood for GPS observations, patches, boundaries, …\n\n\n\n\nRivers\n\n\n\n\nProtected areas\n\n\n\n\n\n\nadapted from https://sist.pages.in2p3.fr/anf23-geomatique/\n\n\n\nRivers ?\n\n\nVegetation index (e.g. NDVI)?\n\n\nElevation ?\n\n\nProtected areas ?\n\n\nLand use-land cover ?\n\n\nRaster\n\n\nMatrix, regular grid with equidistant cells\nSpatial resolution = cell size\nFormat for satellite data, model output, …\n\n\n\n\nVegetation index (e.g. NDVI)\n\n\n\n\nElevation"
   },
   {
     "objectID": "intro-GIS.html#vector-vs-raster-file-format",
     "href": "intro-GIS.html#vector-vs-raster-file-format",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Vector vs Raster file format",
-    "text": "Vector vs Raster file format\n\n\nVector\n\nGeopackage(.gpkg)  open format based on SQLite\nESRI shapefile (.shp)  historical format from ESRI.  Multiple files (dbf, shx, shp, prj)\nGPS Exchange Format (.gpx)  XML file designed for GPS data\ngeojson (.geojson)  plain text file, used in web API but limited to WGS84\nGoogle Earth (.kml)\n\n\n\n\nRaster\n\nGeoTIFF (.tif)  the standard format. Can store multiple “bands”.\nNetCDF (.nc)  for storing multi-dimensional, array-oriented variables\nASCII Grid (.asc)  simple text files\nGRIdded Binary (.grb), WMO standard\nImagine (.img) ERDAS file format"
+    "text": "Vector vs Raster file format\n\n\nVector\n\nGeopackage(.gpkg)  open format based on SQLite\nESRI shapefile (.shp)  historical format from ESRI.  Multiple files (dbf, shx, shp, prj)\nGPS Exchange Format (.gpx)  XML file designed for GPS data\ngeojson (.geojson)  plain text file, used in web API but limited to WGS84\nGoogle Earth (.kml)\n\n\n\n\n\nadapted from https://sist.pages.in2p3.fr/anf23-geomatique/\n\n\n\nRaster\n\nGeoTIFF (.tif)  the standard format. Can store multiple “bands”.\nNetCDF (.nc)  for storing multi-dimensional, array-oriented variables\nASCII Grid (.asc)  simple text files\nGRIdded Binary (.grb), WMO standard\nImagine (.img) ERDAS file format"
   },
   {
     "objectID": "intro-GIS.html#data-sources",
@@ -88,28 +81,21 @@
     "href": "intro-GIS.html#keeping-track-of-new-spatial-data",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Keeping track of new spatial data",
-    "text": "Keeping track of new spatial data\n\n\n\n\n\nMetaGIS\n\n\n\n\n\nIt could be a common effort\n\nDon’t hesitate to populate it\n Share it with colleagues : terrameta"
+    "text": "Keeping track of new spatial data\n\n\n\n\n\nMetaGIS\n\n\n\n\n\nLet’s help each other\n\nFeel free to add new dataset\n Share it with colleagues : terrameta"
   },
   {
     "objectID": "intro-GIS.html#is-r-a-good-gis-software",
     "href": "intro-GIS.html#is-r-a-good-gis-software",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Is R a good GIS software?",
-    "text": "Is R a good GIS software?\n\n\n\n\n\n\n\n\n\nDesktop GIS (GUI)  ArcGIS, Quantum GIS\nScripting  , Python1\n\n\n\n\nHome disciplines\nGeography\nComputing, Statistics\n\n\nSoftware focus\nGraphical User Interface\nCommand line\n\n\nReproducibility\nMinimal\nMaximal\n\n\n\n\n ####  packages\nIn this tutorial we will see how to use terra, sf, and mapview.\nOther interesting packages:\n\nmapsf and tmap: creates nice looking maps\n\nexactextractr : fast extraction on large raster\n\nRecently deprecated  packages (end of 2023) : sp, raster, rgdal, rgeos, maptools\n\nrasterio library is similar to terra"
+    "text": "Is R a good GIS software?\n\n\n\n\n\n\n\n\n\nDesktop GIS (GUI)  ArcGIS, Quantum GIS\nScripting  , Python1\n\n\n\n\nHome disciplines\nGeography\nComputing, Statistics\n\n\nSoftware focus\nGraphical User Interface\nCommand line\n\n\nReproducibility\nMinimal\nMaximal\n\n\n\n\n\n packages\nIn this tutorial we will see how to use terra, sf, and mapview.\nOther interesting packages:\n\nmapsf and tmap: creates nice looking maps\n\nexactextractr : fast extraction on large raster\n\nRecently deprecated  packages (end of 2023) : sp, raster, rgdal, rgeos, maptools\n\nrasterio library is similar to terra"
   },
   {
     "objectID": "intro-GIS.html#summary-of-key-functions-in-terra",
     "href": "intro-GIS.html#summary-of-key-functions-in-terra",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Summary of key functions in terra",
-    "text": "Summary of key functions in terra\n\n\nVector\n\n# read\nvector &lt;- vect(\"my_polygons.gpkg\")\n\n# write\nwriteVector()\n\n# calculate distance for lines or perimeter for polygons\nperim(vector)\n\n# calculate area for polygons\nexpanse(vector)\n\n# calculate distance between objects\ndistance(vector)\n\n# create buffers around objects()\nbuffer()\n\nintersect()\n\n# transform vector to raster format\nrasterize(vector)\n\n\n\n\n\n# coordinate reference system\ncrs()\n\n# extent of the spatial object (xmin, xmax, ymin, ymax)\next()\n\n# getting the dimensions of the spatial object\ndim()\n\n# projection to different CRS\nproject()\n\n# making a simple map\nplot()\n\n# extracting the raster values at the vector locations\nextract(vector, raster)\n\ncrop()\n\nmask()\n\n\nRaster\n\nraster &lt;- rast(\"my_raster.tif\")\n\n# resolution of the raster\nres(raster)\n\n# \naggregate(raster)\nresample()\n\nas.line(), as.polygon()"
-  },
-  {
-    "objectID": "intro-GIS.html#short-introduction-to-mapview",
-    "href": "intro-GIS.html#short-introduction-to-mapview",
-    "title": "FRB-CESAB workshop on spatial data analysis in R",
-    "section": "Short introduction to mapview",
-    "text": "Short introduction to mapview\nMake incremental map in two columns"
+    "text": "Summary of key functions in terra\n\n\nVector\n\n# read\nvector &lt;- vect(\"my_polygons.gpkg\")\n\n# write\nwriteVector()\n\n# calculate distance for lines or perimeter for polygons\nperim(vector)\n\n# calculate area for polygons\nexpanse(vector)\n\n# calculate distance between objects\ndistance(vector)\n\n# create buffers around objects()\nbuffer()\n\nintersect()\n\n# transform vector to raster format\nrasterize(vector)\n\n\ncommun\n\n# coordinate reference system\ncrs()\n\n# extent of the spatial object (xmin, xmax, ymin, ymax)\next()\n\n# getting the dimensions of the spatial object\ndim()\n\n# projection to different CRS\nproject()\n\n# making a simple map\nplot()\n\n# extracting the raster values at the vector locations\nextract(vector, raster)\n\ncrop()\n\nmask()\n\n\nRaster\n\nraster &lt;- rast(\"my_raster.tif\")\n\n# resolution of the raster\nres(raster)\n\n# \naggregate(raster)\nresample()\n\nas.line(), as.polygon()"
   },
   {
     "objectID": "index.html",

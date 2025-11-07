@@ -236,6 +236,8 @@ Nicolas Casajus<br/>
 </section>
 <section id="objectives" class="slide level2">
 <h2>Objectives</h2>
+<!-- ugly slides -->
+<p><br></p>
 <ul>
 <li>Feel more comfortable to work with spatial data<br>
 </li>
@@ -279,11 +281,11 @@ Nicolas Casajus<br/>
 -->
 <div class="columns">
 <div class="column" style="width:30%;">
-<p><img data-src="https://frbcesab.github.io/spatial-r/chapters/13_polygons_files/figure-html/sfmap_line-1.png" style="width:100.0%"></p>
+<p><img data-src="https://frbcesab.github.io/spatial-r/chapters/12_lines_files/figure-html/mapterra_line-1.png" style="width:100.0%"></p>
 </div><div class="column" style="width:30%;">
-<p><img data-src="https://github.com/FRBCesab/spatial-r/raw/main/_freeze/chapters/13_polygons/figure-html/map_buffer_sf-1.png" style="width:100.0%"></p>
+<p><img data-src="https://frbcesab.github.io/spatial-r/chapters/22_multilayer_files/figure-html/rast_transform-1.png" style="width:100.0%"></p>
 </div><div class="column" style="width:30%;">
-<p><img data-src="https://frbcesab.github.io/spatial-r/chapters/21_rasters_files/figure-html/visu_pts_rast-1.png" style="width:100.0%"></p>
+<p><img data-src="https://frbcesab.github.io/spatial-r/chapters/23_grid_files/figure-html/mask-1.png" style="width:100.0%"></p>
 </div></div>
 <blockquote>
 <p>It’s a practical workshop, you will work in front of the screen, so <strong>don’t forget to take breaks</strong> !</p>
@@ -301,7 +303,7 @@ Nicolas Casajus<br/>
 </blockquote>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><img data-src="img/GIS_illu_CCO.JPG" style="height:5.0%"></p>
+<p><img data-src="img/USGS_The_National_Map.jpg" style="width:50.0%"></p>
 </div><div class="column" style="width:40%;">
 <ul>
 <li class="fragment">softwares to handle <strong>spatial data</strong></li>
@@ -363,7 +365,7 @@ or video from NASA
 <ul>
 <li>geographic lat/long WGS84 <a href="https://epsg.io/4326">EPSG:4326</a> used in GPS</li>
 <li>Pseudo-Mercator <a href="https://epsg.io/3857">EPSG:3857</a> used by GoogleMap, OpenStreetMap, leaflet, …</li>
-<li>many others (Winkel tripel <a href="https://epsg.io/53042">EPSG:53042</a>, Robinson <a href="https://epsg.io/54030">EPSG:54030</a>, …)</li>
+<li>many others (Winkel Tripel <a href="https://epsg.io/53042">EPSG:53042</a>, Robinson <a href="https://epsg.io/54030">EPSG:54030</a>, Mollweide <a href="https://epsg.io/54009">EPSG:54009</a>)</li>
 </ul>
 </div></div>
 
@@ -371,21 +373,16 @@ or video from NASA
 maybe mention old PROJ system, which is more readable, more flexible, yet more complex
 and https://crs-explorer.proj.org/ for choosing the right CRS
 
-add xkcd image : political
+
+## World projection systems are political
+
+![[xkcd.com/977](https://xkcd.com/977)](img/map_projection_xkcd.com977.png){width=100%}
+
 -->
 <aside><div>
 <p>ESRI made a long list <a href="https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data">here</a> with their properties equal area, equidistant or conformal (= conserve angles).</p>
 <p>EPSG summarize in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.</p>
 </div><ol class="aside-footnotes"><li id="fn1"><p>European Petroleum Survey Group</p></li></ol></aside></section>
-<section id="world-projection-systems-are-political" class="slide level2">
-<h2>World projection systems are political</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/map_projection_xkcd.com977.png" style="width:100.0%"></p>
-<figcaption><a href="https://xkcd.com/977">xkcd.com/977</a></figcaption>
-</figure>
-</div>
-</section>
 <section id="when-and-why-must-you-care-about-projection-systems" class="slide level2">
 <h2>When and why must you care about projection systems?</h2>
 <p><br></p>
@@ -434,7 +431,12 @@ but not with `sf`, unless s2 deactivated, calculation with s2 makes issue, not i
 </ul>
 </div>
 </div><div class="column" style="width:40%;">
-<p><img data-src="img/vector-raster.png" style="width:100.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/vector-raster_sist2023.png" style="width:100.0%"></p>
+<figcaption>adapted from <a href="https://sist.pages.in2p3.fr/anf23-geomatique/" class="uri">https://sist.pages.in2p3.fr/anf23-geomatique/</a></figcaption>
+</figure>
+</div>
 <div class="fragment fade-in-then-out center" data-fragment-index="3,">
 <p>Rivers ?</p>
 </div>
@@ -490,7 +492,12 @@ large scale (1:50000) = small extent and high spatial resolution
 <li>Google Earth (.kml)</li>
 </ul>
 </div><div class="column" style="width:40%;">
-<p><img data-src="img/vector-raster.png" style="width:100.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/vector-raster_sist2023.png" style="width:100.0%"></p>
+<figcaption>adapted from <a href="https://sist.pages.in2p3.fr/anf23-geomatique/" class="uri">https://sist.pages.in2p3.fr/anf23-geomatique/</a></figcaption>
+</figure>
+</div>
 </div><div class="column fragment" style="width:30%;">
 <h3 id="raster-1">Raster</h3>
 <ul>
@@ -617,9 +624,9 @@ Theia ?
 -->
 </div><div class="column" style="width:50%;">
 <p><br></p>
-<p>It could be a common effort</p>
+<p>Let’s help each other</p>
 <p><br></p>
-<p>Don’t hesitate to populate it</p>
+<p>Feel free to add new dataset</p>
 <p><br> Share it with colleagues : <a href="https://frbcesab.github.io/terrameta/">terrameta</a></p>
 </div></div>
 </section></section>
@@ -662,7 +669,8 @@ Theia ?
 </tbody>
 </table>
 <!-- from https://r.geocompx.org/intro -->
-<p><br> #### <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages</p>
+<p><br></p>
+<h4 id="packages"><i class="fa-brands fa-r-project" aria-label="r-project"></i> packages</h4>
 <p>In this tutorial we will see how to use <code>terra</code>, <code>sf</code>, and <code>mapview</code>.</p>
 <p>Other interesting packages:</p>
 <ul>
@@ -736,8 +744,7 @@ Theia ?
 <span id="cb1-22"><a></a><span class="fu">rasterize</span>(vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column fragment" data-fragment-index="2" style="width:30%;">
-<p><br></p>
-<p><br></p>
+<h3 id="commun">commun</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># coordinate reference system</span></span>
 <span id="cb2-2"><a></a><span class="fu">crs</span>()</span>
@@ -776,15 +783,10 @@ Theia ?
 <span id="cb3-10"><a></a><span class="fu">as.line</span>(), <span class="fu">as.polygon</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
-</section>
-<section id="short-introduction-to-mapview" class="slide level2">
-<h2>Short introduction to mapview</h2>
-<p>Make incremental map in two columns</p>
 </section></section>
 <section id="your-turn" class="title-slide slide level1 center">
-<h1>Your turn</h1>
+<h1>Your turn !</h1>
 <p><br> <a href="https://frbcesab.github.io/spatial-r/" class="uri">https://frbcesab.github.io/spatial-r/</a></p>
-<!-- missing: where to get the data? -->
 
 
 </section>
