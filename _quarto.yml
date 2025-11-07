@@ -12,7 +12,6 @@ execute:
 website:
   title: "FRB-CESAB workshop on spatial data analysis in R"
   repo-url: https://frbcesab.github.io/spatial-r/
-  repo-actions: [issue]
 
 format:
   html:

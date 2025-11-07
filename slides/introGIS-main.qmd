@@ -1,5 +1,9 @@
 ## Objectives
 
+<!-- ugly slides -->
+
+<br>
+
 - Feel more comfortable to work with spatial data  
 - Load spatial data in R and visualize it
 - Extract information from remote sensing or model dataset
@@ -22,16 +26,17 @@
 
 ::::{ .columns }
 :::{ .column width="30%"}
-![](https://frbcesab.github.io/spatial-r/chapters/13_polygons_files/figure-html/sfmap_line-1.png){width=100%}
+
+![](https://frbcesab.github.io/spatial-r/chapters/12_lines_files/figure-html/mapterra_line-1.png){width=100%}
 :::
 
 
 :::{ .column width="30%"}
-![](https://github.com/FRBCesab/spatial-r/raw/main/_freeze/chapters/13_polygons/figure-html/map_buffer_sf-1.png){width=100%}
+![](https://frbcesab.github.io/spatial-r/chapters/22_multilayer_files/figure-html/rast_transform-1.png){width=100%}
 :::
 
 :::{ .column width="30%"}
-![](https://frbcesab.github.io/spatial-r/chapters/21_rasters_files/figure-html/visu_pts_rast-1.png){width=100%}
+![](https://frbcesab.github.io/spatial-r/chapters/23_grid_files/figure-html/mask-1.png){width=100%}
 :::
 
 ::::
@@ -50,7 +55,7 @@
 
 :::: {.columns }
 ::: {.column width="60%"}
-![](img/GIS_illu_CCO.JPG){height=5%}
+![](img/USGS_The_National_Map.jpg){width=50%}
 :::
 
 ::: {.column width="40%"}
@@ -127,7 +132,7 @@ The projection system will depend on the objective and the spatial extent.
 
 - geographic lat/long WGS84 [EPSG:4326](https://epsg.io/4326) used in GPS
 - Pseudo-Mercator [EPSG:3857](https://epsg.io/3857) used by GoogleMap, OpenStreetMap, leaflet, ...
-- many others (Winkel tripel [EPSG:53042](https://epsg.io/53042), Robinson [EPSG:54030](https://epsg.io/54030), ...)
+- many others (Winkel Tripel [EPSG:53042](https://epsg.io/53042), Robinson [EPSG:54030](https://epsg.io/54030), Mollweide [EPSG:54009](https://epsg.io/54009))
 :::
 
 ::::
@@ -143,13 +148,12 @@ EPSG summarize in a single number the Coordinate Reference Systems which is actu
 maybe mention old PROJ system, which is more readable, more flexible, yet more complex
 and https://crs-explorer.proj.org/ for choosing the right CRS
 
-add xkcd image : political
--->
 
 ## World projection systems are political
 
 ![[xkcd.com/977](https://xkcd.com/977)](img/map_projection_xkcd.com977.png){width=100%}
 
+-->
 
 ## When and why must you care about projection systems?
 
@@ -204,7 +208,8 @@ but not with `sf`, unless s2 deactivated, calculation with s2 makes issue, not i
 :::
 
 ::: {.column width="40%"}
-![](img/vector-raster.png){width=100%}
+
+![adapted from <https://sist.pages.in2p3.fr/anf23-geomatique/>](img/vector-raster_sist2023.png){width=100%}
 
 ::: {.fragment fragment-index=3, .fade-in-then-out .center}
 Rivers ?
@@ -266,7 +271,9 @@ large scale (1:50000) = small extent and high spatial resolution
 :::
 
 ::: {.column width="40%"}
-![](img/vector-raster.png){width=100%}
+
+![adapted from <https://sist.pages.in2p3.fr/anf23-geomatique/>](img/vector-raster_sist2023.png){width=100%}
+
 ::: 
 
 ::: {.column width="30%" .fragment}
@@ -421,11 +428,11 @@ Theia ?
 ::: {.column width="50%"}
 <br>
 
-It could be a common effort  
+Let's help each other 
 
 <br> 
 
-Don't hesitate to populate it
+Feel free to add new dataset
 
 <br> 
 Share it with colleagues : [terrameta](https://frbcesab.github.io/terrameta/)
@@ -448,6 +455,7 @@ Share it with colleagues : [terrameta](https://frbcesab.github.io/terrameta/)
 <!-- from https://r.geocompx.org/intro -->
 
 <br>
+
 #### {{< fa brands r-project >}} packages
 
 In this tutorial we will see how to use `terra`, `sf`, and `mapview`.   
@@ -532,9 +540,7 @@ rasterize(vector)
 
 ::: {.column width="30%" .fragment fragment-index=2}
 
-<br>
-
-<br>
+### commun
 
 ```{r}
 #| eval: false
@@ -586,14 +592,9 @@ as.line(), as.polygon()
 
 ::::
 
-## Short introduction to mapview
-
-Make incremental map in two columns
 
 
-# Your turn
+# Your turn !
 <br>
 <https://frbcesab.github.io/spatial-r/>
 
-
-<!-- missing: where to get the data? -->

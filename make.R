@@ -1,10 +1,9 @@
 # render the quarto presentations
 
+quarto::quarto_render("index.qmd")
+
 # introduction presentation
 quarto::quarto_render("intro-GIS.qmd")
-
-# datasets presentation
-quarto::quarto_render("data-GIS.qmd")
 
 # or in the terminal:
 #> quarto render
