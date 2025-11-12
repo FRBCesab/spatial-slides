@@ -1,5 +1,5 @@
 <h1 align="center">
-  <br>Spatial data analysis workshop<br>
+  <br>Spatial analysis workshop<br>
 </h1>
 
 <br>
@@ -30,27 +30,11 @@
 
 Online presentations for the workshop on [Spatial data analysis in R](https://frbcesab.github.io/spatial-r/) by FRB-CESAB.
 
-<!--
 <h1 align="center">
   <br>
-  <a href="https://fellow-flora.github.io/slides-ws2/intro-git.html"><img src="img/git-logo.png" alt="Git" width="200"></a>
-  <br>Introduction to git and Github<br>
+  <a href="https://frbcesab.github.io/spatial-slides/intro-GIS.html"><img src="img/spatialr_logo01b.png" alt="Env" width="200"></a>
+  <br>Introduction to GIS for ecologists<br>
 </h1>
-
-
-<h1 align="center">
-  <br>
-  <a href="https://fellow-flora.github.io/slides-ws2/fellow-traits.html"><img src="img/fellow-logo.png" alt="Traits" width="200"></a>
-  <br>FELLOW traits database<br>
-</h1>
--->
-
-<h1 align="center">
-  <br>
-  <a href="https://frbcesab.github.io/spatial-slides/env-data.html"><img src="img/logo-dataenv-title.png" alt="Env" width="200"></a>
-  <br>Environment databases<br>
-</h1>
-
 
 
 <br>
@@ -67,10 +51,9 @@ Text and figures are licensed under Creative Commons Attribution [CC By 4.0](htt
 
 ## Citation
 
-Please cite these presentations as:
+Please cite these materials as:
 
-> Frelat R, Coux C, and Casajus N (2025) Environment databases frequently used in biodiversity research. URL: <https://fellow-flora.github.io/slides-ws2/env-data.html>  
-
+> Frelat R (2025) Spatial data analysis with R. Introduction to GIS for ecologists. URL: <https://frbcesab.github.io/spatial-r/>  
 
 
 ## See also

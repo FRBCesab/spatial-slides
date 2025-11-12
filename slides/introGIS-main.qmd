@@ -1,13 +1,35 @@
 ## Objectives
 
-<!-- ugly slides -->
+
+::::{ .columns }
+:::{ .column width="60%"}
+
+<br>
+
+<br>
+
+<br>
 
 <br>
 
 - Feel more comfortable to work with spatial data  
 - Load spatial data in R and visualize it
-- Extract information from remote sensing or model dataset
+- Extract information from remote sensing or model datasets
 - Take advantage of the numerous databases that are available online
+
+:::
+
+
+:::{ .column width="40%" .fragment}
+
+![[Vies-à-Vies](https://viesavies.cc)](img/Otter_ViesAVies.png){width=100%}
+
+![Observations in 2021 from [GBIF](https://www.gbif.org)](img/Map_otter_GBIF_2021.png){width=70%}
+
+:::
+
+::::
+
 
 ## Schedule
 
@@ -16,7 +38,7 @@
 | 9.00  –  9.30 am <br>  | Introduction                                           |
 | 9.30  – 12.00 am <br>  | Tutorials on handling vectors data type: <br> [points](https://frbcesab.github.io/spatial-r/chapters/11_points.html), [lines](https://frbcesab.github.io/spatial-r/chapters/12_lines.html), and [polygons](https://frbcesab.github.io/spatial-r/chapters/13_polygons.html)|
 | 12.00 – 1.30 pm        | Lunch break                                            |
-| 1.30  – 4 pm     <br>  | Tutorials on handling [raster data type](https://frbcesab.github.io/spatial-r/chapters/21_rasters.html),<br> [high dimensioinal rasters](https://frbcesab.github.io/spatial-r/chapters/22_multilayer.html), and [make a grid](https://frbcesab.github.io/spatial-r/chapters/23_grid.html)  |
+| 1.30  – 4.00 pm     <br>  | Tutorials on handling [raster data type](https://frbcesab.github.io/spatial-r/chapters/21_rasters.html),<br> [high dimensioinal rasters](https://frbcesab.github.io/spatial-r/chapters/22_multilayer.html), and [make a grid](https://frbcesab.github.io/spatial-r/chapters/23_grid.html)  |
 
 <!-- Add output from the workshop in three columns: 
 21_rasters//figure-html/ex1-1.png
@@ -41,6 +63,10 @@
 
 ::::
 
+
+. . .   
+
+
 > It's a practical workshop, you will work in front of the screen, so **don't forget to take breaks** !
 
 
@@ -54,11 +80,11 @@
 
 
 :::: {.columns }
-::: {.column width="60%"}
-![](img/USGS_The_National_Map.jpg){width=50%}
+::: {.column width="40%"}
+![](img/USGS_The_National_Map.jpg)
 :::
 
-::: {.column width="40%"}
+::: {.column width="60%"}
 
 ::: {.incremental}
 
@@ -112,7 +138,7 @@ or video from NASA
 
 ## The most commun projection systems
 
-> One system to code them all: [EPSG](https://epsg.io/)^[European Petroleum Survey Group]
+> One system to code them all: [EPSG](https://epsg.io/)^[European Petroleum Survey Group (EPSG) summarizes in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.]
 
 The projection system will depend on the objective and the spatial extent.  
 
@@ -141,18 +167,15 @@ The projection system will depend on the objective and the spatial extent.
 
 ESRI made a long list [here](https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data) with their properties equal area, equidistant or conformal (= conserve angles).   
 
-EPSG summarize in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.
 :::
 
 <!-- 
 maybe mention old PROJ system, which is more readable, more flexible, yet more complex
 and https://crs-explorer.proj.org/ for choosing the right CRS
 
-
 ## World projection systems are political
 
 ![[xkcd.com/977](https://xkcd.com/977)](img/map_projection_xkcd.com977.png){width=100%}
-
 -->
 
 ## When and why must you care about projection systems?
@@ -170,8 +193,8 @@ and https://crs-explorer.proj.org/ for choosing the right CRS
 ::: {.fragment}
 #### Calculating distances, or areas^[`terra` now uses spherical calculation by default using lat/long coordinates]    
 
-- use appropriate projection system (e.g. equal-area for areas or equidistant for distances)
-- the projection system will define the unit
+- Use appropriate projection system (e.g. equal-area for areas or equidistant for distances)
+- The projection system will define the unit
 
 :::
 
@@ -290,7 +313,7 @@ large scale (1:50000) = small extent and high spatial resolution
 <!-- https://www.ecologi.st/spatial-r/gis-data-models-and-file-formats.html -->
 
 
-# Where to find spatial data?
+# Where can we find spatial data?
 
 ## Data sources
 
@@ -509,16 +532,14 @@ Recently deprecated {{< fa brands r-project >}} packages (end of 2023) : `sp`, `
 ::: {.column width="30%"}
 ### Vector
 
-```{r}
-#| eval: false
-#| echo: true
+```{.r code-line-numbers="|1-5|7-11|13-14|16-17|19-20|22-23|"}
 # read
 vector <- vect("my_polygons.gpkg")
 
 # write
-writeVector()
+writeVector(vector, "my_file.gpkg")
 
-# calculate distance for lines or perimeter for polygons
+# calculate distance or perimeter
 perim(vector)
 
 # calculate area for polygons
@@ -527,10 +548,11 @@ expanse(vector)
 # calculate distance between objects
 distance(vector)
 
-# create buffers around objects()
-buffer()
+# create buffers around objects
+buffer(vector, set_dist)
 
-intersect()
+# find spatially interesecting features
+intersect(vector1, vector2)
 
 # transform vector to raster format
 rasterize(vector)
@@ -540,11 +562,9 @@ rasterize(vector)
 
 ::: {.column width="30%" .fragment fragment-index=2}
 
-### commun
+### <>
 
-```{r}
-#| eval: false
-#| echo: true
+```{.r code-line-numbers="|1-8|10-11|13-14|16-17|19-21|"}
 # coordinate reference system
 crs()
 
@@ -554,17 +574,17 @@ ext()
 # getting the dimensions of the spatial object
 dim()
 
-# projection to different CRS
-project()
-
 # making a simple map
 plot()
 
-# extracting the raster values at the vector locations
+# projection to different CRS
+project()
+
+# extracting raster values at vector locations
 extract(vector, raster)
 
+# remove area outside extent of interest
 crop()
-
 mask()
 ```
 
@@ -573,19 +593,25 @@ mask()
 ::: {.column width="30%" .fragment fragment-index=1}
 ### Raster
 
-```{r}
-#| eval: false
-#| echo: true
+```{.r code-line-numbers="|1-5|7-8|10-14|16-18|"}
+# read
 raster <- rast("my_raster.tif")
+
+# write
+writeRaster(raster, "my_file.tif")
 
 # resolution of the raster
 res(raster)
 
-# 
-aggregate(raster)
-resample()
+# decrease the resolution
+aggregate(raster, fact = 2)
 
-as.line(), as.polygon()
+# change the grid 
+resample(raster1, raster2)
+
+# transform into vector
+as.line(raster)
+as.polygon(raster)
 ```
 
 ::: 
