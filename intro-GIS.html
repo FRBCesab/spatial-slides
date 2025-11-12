@@ -6,10 +6,10 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+  <meta name="generator" content="quarto-1.8.26">
 
   <title>FRB-CESAB workshop on spatial data analysis in R – intro-gis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -236,15 +236,33 @@ Nicolas Casajus<br/>
 </section>
 <section id="objectives" class="slide level2">
 <h2>Objectives</h2>
-<!-- ugly slides -->
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
 <p><br></p>
 <ul>
 <li>Feel more comfortable to work with spatial data<br>
 </li>
 <li>Load spatial data in R and visualize it</li>
-<li>Extract information from remote sensing or model dataset</li>
+<li>Extract information from remote sensing or model datasets</li>
 <li>Take advantage of the numerous databases that are available online</li>
 </ul>
+</div><div class="column fragment" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Otter_ViesAVies.png" style="width:100.0%"></p>
+<figcaption><a href="https://viesavies.cc">Vies-à-Vies</a></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Map_otter_GBIF_2021.png" style="width:70.0%"></p>
+<figcaption>Observations in 2021 from <a href="https://www.gbif.org">GBIF</a></figcaption>
+</figure>
+</div>
+</div></div>
 </section>
 <section id="schedule" class="slide level2">
 <h2>Schedule</h2>
@@ -269,7 +287,7 @@ Nicolas Casajus<br/>
 <td>Lunch break</td>
 </tr>
 <tr class="even">
-<td>1.30 – 4 pm <br></td>
+<td>1.30 – 4.00 pm <br></td>
 <td>Tutorials on handling <a href="https://frbcesab.github.io/spatial-r/chapters/21_rasters.html">raster data type</a>,<br> <a href="https://frbcesab.github.io/spatial-r/chapters/22_multilayer.html">high dimensioinal rasters</a>, and <a href="https://frbcesab.github.io/spatial-r/chapters/23_grid.html">make a grid</a></td>
 </tr>
 </tbody>
@@ -287,9 +305,11 @@ Nicolas Casajus<br/>
 </div><div class="column" style="width:30%;">
 <p><img data-src="https://frbcesab.github.io/spatial-r/chapters/23_grid_files/figure-html/mask-1.png" style="width:100.0%"></p>
 </div></div>
+<div class="fragment">
 <blockquote>
 <p>It’s a practical workshop, you will work in front of the screen, so <strong>don’t forget to take breaks</strong> !</p>
 </blockquote>
+</div>
 </section>
 <section>
 <section id="what-is-geographic-information-system-gis" class="title-slide slide level1 center">
@@ -302,9 +322,9 @@ Nicolas Casajus<br/>
 <p>A geographic information system (GIS) consists of integrated computer hardware and software that store, manage, analyze, edit, output, and visualize geographic data. (Wikipedia)</p>
 </blockquote>
 <div class="columns">
-<div class="column" style="width:60%;">
-<p><img data-src="img/USGS_The_National_Map.jpg" style="width:50.0%"></p>
-</div><div class="column" style="width:40%;">
+<div class="column" style="width:40%;">
+<p><img data-src="img/USGS_The_National_Map.jpg"></p>
+</div><div class="column" style="width:60%;">
 <ul>
 <li class="fragment">softwares to handle <strong>spatial data</strong></li>
 <li class="fragment">data stored with their <strong>coordinates</strong></li>
@@ -373,16 +393,13 @@ or video from NASA
 maybe mention old PROJ system, which is more readable, more flexible, yet more complex
 and https://crs-explorer.proj.org/ for choosing the right CRS
 
-
 ## World projection systems are political
 
 ![[xkcd.com/977](https://xkcd.com/977)](img/map_projection_xkcd.com977.png){width=100%}
-
 -->
 <aside><div>
 <p>ESRI made a long list <a href="https://www.arcgis.com/sharing/rest/content/items/e8b85d508d2c4f21a3dec4e52dc7d9c4/data">here</a> with their properties equal area, equidistant or conformal (= conserve angles).</p>
-<p>EPSG summarize in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.</p>
-</div><ol class="aside-footnotes"><li id="fn1"><p>European Petroleum Survey Group</p></li></ol></aside></section>
+</div><ol class="aside-footnotes"><li id="fn1"><p>European Petroleum Survey Group (EPSG) summarizes in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.</p></li></ol></aside></section>
 <section id="when-and-why-must-you-care-about-projection-systems" class="slide level2">
 <h2>When and why must you care about projection systems?</h2>
 <p><br></p>
@@ -395,8 +412,8 @@ and https://crs-explorer.proj.org/ for choosing the right CRS
 <div class="fragment">
 <h4 id="calculating-distances-or-areas">Calculating distances, or areas<sup>1</sup></h4>
 <ul>
-<li>use appropriate projection system (e.g.&nbsp;equal-area for areas or equidistant for distances)</li>
-<li>the projection system will define the unit</li>
+<li>Use appropriate projection system (e.g.&nbsp;equal-area for areas or equidistant for distances)</li>
+<li>The projection system will define the unit</li>
 </ul>
 </div>
 <!-- add a slide commun issue 
@@ -511,8 +528,8 @@ large scale (1:50000) = small extent and high spatial resolution
 <!-- https://www.ecologi.st/spatial-r/gis-data-models-and-file-formats.html -->
 </section></section>
 <section>
-<section id="where-to-find-spatial-data" class="title-slide slide level1 center">
-<h1>Where to find spatial data?</h1>
+<section id="where-can-we-find-spatial-data" class="title-slide slide level1 center">
+<h1>Where can we find spatial data?</h1>
 
 </section>
 <section id="data-sources" class="slide level2">
@@ -719,14 +736,13 @@ Theia ?
 <div class="columns">
 <div class="column" style="width:30%;">
 <h3 id="vector-2">Vector</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># read</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="|1-5|7-11|13-14|16-17|19-20|22-23|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># read</span></span>
 <span id="cb1-2"><a></a>vector <span class="ot">&lt;-</span> <span class="fu">vect</span>(<span class="st">"my_polygons.gpkg"</span>)</span>
 <span id="cb1-3"><a></a></span>
 <span id="cb1-4"><a></a><span class="co"># write</span></span>
-<span id="cb1-5"><a></a><span class="fu">writeVector</span>()</span>
+<span id="cb1-5"><a></a><span class="fu">writeVector</span>(vector, <span class="st">"my_file.gpkg"</span>)</span>
 <span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a><span class="co"># calculate distance for lines or perimeter for polygons</span></span>
+<span id="cb1-7"><a></a><span class="co"># calculate distance or perimeter</span></span>
 <span id="cb1-8"><a></a><span class="fu">perim</span>(vector)</span>
 <span id="cb1-9"><a></a></span>
 <span id="cb1-10"><a></a><span class="co"># calculate area for polygons</span></span>
@@ -735,18 +751,17 @@ Theia ?
 <span id="cb1-13"><a></a><span class="co"># calculate distance between objects</span></span>
 <span id="cb1-14"><a></a><span class="fu">distance</span>(vector)</span>
 <span id="cb1-15"><a></a></span>
-<span id="cb1-16"><a></a><span class="co"># create buffers around objects()</span></span>
-<span id="cb1-17"><a></a><span class="fu">buffer</span>()</span>
+<span id="cb1-16"><a></a><span class="co"># create buffers around objects</span></span>
+<span id="cb1-17"><a></a><span class="fu">buffer</span>(vector, set_dist)</span>
 <span id="cb1-18"><a></a></span>
-<span id="cb1-19"><a></a><span class="fu">intersect</span>()</span>
-<span id="cb1-20"><a></a></span>
-<span id="cb1-21"><a></a><span class="co"># transform vector to raster format</span></span>
-<span id="cb1-22"><a></a><span class="fu">rasterize</span>(vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<span id="cb1-19"><a></a><span class="co"># find spatially interesecting features</span></span>
+<span id="cb1-20"><a></a><span class="fu">intersect</span>(vector1, vector2)</span>
+<span id="cb1-21"><a></a></span>
+<span id="cb1-22"><a></a><span class="co"># transform vector to raster format</span></span>
+<span id="cb1-23"><a></a><span class="fu">rasterize</span>(vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column fragment" data-fragment-index="2" style="width:30%;">
-<h3 id="commun">commun</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># coordinate reference system</span></span>
+<h3 id="section">&lt;&gt;</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="|1-8|10-11|13-14|16-17|19-21|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># coordinate reference system</span></span>
 <span id="cb2-2"><a></a><span class="fu">crs</span>()</span>
 <span id="cb2-3"><a></a></span>
 <span id="cb2-4"><a></a><span class="co"># extent of the spatial object (xmin, xmax, ymin, ymax)</span></span>
@@ -755,33 +770,38 @@ Theia ?
 <span id="cb2-7"><a></a><span class="co"># getting the dimensions of the spatial object</span></span>
 <span id="cb2-8"><a></a><span class="fu">dim</span>()</span>
 <span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a><span class="co"># projection to different CRS</span></span>
-<span id="cb2-11"><a></a><span class="fu">project</span>()</span>
+<span id="cb2-10"><a></a><span class="co"># making a simple map</span></span>
+<span id="cb2-11"><a></a><span class="fu">plot</span>()</span>
 <span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="co"># making a simple map</span></span>
-<span id="cb2-14"><a></a><span class="fu">plot</span>()</span>
+<span id="cb2-13"><a></a><span class="co"># projection to different CRS</span></span>
+<span id="cb2-14"><a></a><span class="fu">project</span>()</span>
 <span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a><span class="co"># extracting the raster values at the vector locations</span></span>
+<span id="cb2-16"><a></a><span class="co"># extracting raster values at vector locations</span></span>
 <span id="cb2-17"><a></a><span class="fu">extract</span>(vector, raster)</span>
 <span id="cb2-18"><a></a></span>
-<span id="cb2-19"><a></a><span class="fu">crop</span>()</span>
-<span id="cb2-20"><a></a></span>
+<span id="cb2-19"><a></a><span class="co"># remove area outside extent of interest</span></span>
+<span id="cb2-20"><a></a><span class="fu">crop</span>()</span>
 <span id="cb2-21"><a></a><span class="fu">mask</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </div><div class="column fragment" data-fragment-index="1" style="width:30%;">
 <h3 id="raster-2">Raster</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>raster <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"my_raster.tif"</span>)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="co"># resolution of the raster</span></span>
-<span id="cb3-4"><a></a><span class="fu">res</span>(raster)</span>
-<span id="cb3-5"><a></a></span>
-<span id="cb3-6"><a></a><span class="co"># </span></span>
-<span id="cb3-7"><a></a><span class="fu">aggregate</span>(raster)</span>
-<span id="cb3-8"><a></a><span class="fu">resample</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="|1-5|7-8|10-14|16-18|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># read</span></span>
+<span id="cb3-2"><a></a>raster <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"my_raster.tif"</span>)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co"># write</span></span>
+<span id="cb3-5"><a></a><span class="fu">writeRaster</span>(raster, <span class="st">"my_file.tif"</span>)</span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a><span class="co"># resolution of the raster</span></span>
+<span id="cb3-8"><a></a><span class="fu">res</span>(raster)</span>
 <span id="cb3-9"><a></a></span>
-<span id="cb3-10"><a></a><span class="fu">as.line</span>(), <span class="fu">as.polygon</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<span id="cb3-10"><a></a><span class="co"># decrease the resolution</span></span>
+<span id="cb3-11"><a></a><span class="fu">aggregate</span>(raster, <span class="at">fact =</span> <span class="dv">2</span>)</span>
+<span id="cb3-12"><a></a></span>
+<span id="cb3-13"><a></a><span class="co"># change the grid </span></span>
+<span id="cb3-14"><a></a><span class="fu">resample</span>(raster1, raster2)</span>
+<span id="cb3-15"><a></a></span>
+<span id="cb3-16"><a></a><span class="co"># transform into vector</span></span>
+<span id="cb3-17"><a></a><span class="fu">as.line</span>(raster)</span>
+<span id="cb3-18"><a></a><span class="fu">as.polygon</span>(raster)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section></section>
 <section id="your-turn" class="title-slide slide level1 center">

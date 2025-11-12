@@ -4,14 +4,14 @@
     "href": "intro-GIS.html#objectives",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Objectives",
-    "text": "Objectives\n\n\n\nFeel more comfortable to work with spatial data\n\nLoad spatial data in R and visualize it\nExtract information from remote sensing or model dataset\nTake advantage of the numerous databases that are available online"
+    "text": "Objectives\n\n\n\n\n\n\n\nFeel more comfortable to work with spatial data\n\nLoad spatial data in R and visualize it\nExtract information from remote sensing or model datasets\nTake advantage of the numerous databases that are available online\n\n\n\n\n\nVies-à-Vies\n\n\n\n\n\nObservations in 2021 from GBIF"
   },
   {
     "objectID": "intro-GIS.html#schedule",
     "href": "intro-GIS.html#schedule",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\nTime\nActivities\n\n\n\n\n9.00 – 9.30 am \nIntroduction\n\n\n9.30 – 12.00 am \nTutorials on handling vectors data type:  points, lines, and polygons\n\n\n12.00 – 1.30 pm\nLunch break\n\n\n1.30 – 4 pm \nTutorials on handling raster data type, high dimensioinal rasters, and make a grid\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt’s a practical workshop, you will work in front of the screen, so don’t forget to take breaks !"
+    "text": "Schedule\n\n\n\nTime\nActivities\n\n\n\n\n9.00 – 9.30 am \nIntroduction\n\n\n9.30 – 12.00 am \nTutorials on handling vectors data type:  points, lines, and polygons\n\n\n12.00 – 1.30 pm\nLunch break\n\n\n1.30 – 4.00 pm \nTutorials on handling raster data type, high dimensioinal rasters, and make a grid\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt’s a practical workshop, you will work in front of the screen, so don’t forget to take breaks !"
   },
   {
     "objectID": "intro-GIS.html#geographic-information-system",
@@ -39,14 +39,14 @@
     "href": "intro-GIS.html#the-most-commun-projection-systems",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "The most commun projection systems",
-    "text": "The most commun projection systems\n\nOne system to code them all: EPSG1\n\nThe projection system will depend on the objective and the spatial extent.\n\n\nLocal\n\nFrance:  Lambert 93, conformal conic projection EPSG:2154\nEurope:  Lambert azimuthal equal-area EPSG:3035\nOther: Universal Transverse Mercator (UTM), e.g. 32N for Western Europe EPSG:25832 \n\n\nWorld\n\ngeographic lat/long WGS84 EPSG:4326 used in GPS\nPseudo-Mercator EPSG:3857 used by GoogleMap, OpenStreetMap, leaflet, …\nmany others (Winkel Tripel EPSG:53042, Robinson EPSG:54030, Mollweide EPSG:54009)\n\n\n\n\n\nESRI made a long list here with their properties equal area, equidistant or conformal (= conserve angles).\nEPSG summarize in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids.\nEuropean Petroleum Survey Group"
+    "text": "The most commun projection systems\n\nOne system to code them all: EPSG1\n\nThe projection system will depend on the objective and the spatial extent.\n\n\nLocal\n\nFrance:  Lambert 93, conformal conic projection EPSG:2154\nEurope:  Lambert azimuthal equal-area EPSG:3035\nOther: Universal Transverse Mercator (UTM), e.g. 32N for Western Europe EPSG:25832 \n\n\nWorld\n\ngeographic lat/long WGS84 EPSG:4326 used in GPS\nPseudo-Mercator EPSG:3857 used by GoogleMap, OpenStreetMap, leaflet, …\nmany others (Winkel Tripel EPSG:53042, Robinson EPSG:54030, Mollweide EPSG:54009)\n\n\n\n\n\nESRI made a long list here with their properties equal area, equidistant or conformal (= conserve angles).\nEuropean Petroleum Survey Group (EPSG) summarizes in a single number the Coordinate Reference Systems which is actually made of a geodetic datums, a spatial reference systems, and an Earth ellipsoids."
   },
   {
     "objectID": "intro-GIS.html#when-and-why-must-you-care-about-projection-systems",
     "href": "intro-GIS.html#when-and-why-must-you-care-about-projection-systems",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "When and why must you care about projection systems?",
-    "text": "When and why must you care about projection systems?\n\nCrossing multiple spatial data from different sources\n\nKeep track of the projection system of your observation data\nMake sure all datasets share the same projection system or project them\n\n\n\nCalculating distances, or areas1\n\nuse appropriate projection system (e.g. equal-area for areas or equidistant for distances)\nthe projection system will define the unit\n\n\n\nterra now uses spherical calculation by default using lat/long coordinates"
+    "text": "When and why must you care about projection systems?\n\nCrossing multiple spatial data from different sources\n\nKeep track of the projection system of your observation data\nMake sure all datasets share the same projection system or project them\n\n\n\nCalculating distances, or areas1\n\nUse appropriate projection system (e.g. equal-area for areas or equidistant for distances)\nThe projection system will define the unit\n\n\n\nterra now uses spherical calculation by default using lat/long coordinates"
   },
   {
     "objectID": "intro-GIS.html#vector-vs-raster-data-type",
@@ -95,7 +95,7 @@
     "href": "intro-GIS.html#summary-of-key-functions-in-terra",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Summary of key functions in terra",
-    "text": "Summary of key functions in terra\n\n\nVector\n\n# read\nvector &lt;- vect(\"my_polygons.gpkg\")\n\n# write\nwriteVector()\n\n# calculate distance for lines or perimeter for polygons\nperim(vector)\n\n# calculate area for polygons\nexpanse(vector)\n\n# calculate distance between objects\ndistance(vector)\n\n# create buffers around objects()\nbuffer()\n\nintersect()\n\n# transform vector to raster format\nrasterize(vector)\n\n\ncommun\n\n# coordinate reference system\ncrs()\n\n# extent of the spatial object (xmin, xmax, ymin, ymax)\next()\n\n# getting the dimensions of the spatial object\ndim()\n\n# projection to different CRS\nproject()\n\n# making a simple map\nplot()\n\n# extracting the raster values at the vector locations\nextract(vector, raster)\n\ncrop()\n\nmask()\n\n\nRaster\n\nraster &lt;- rast(\"my_raster.tif\")\n\n# resolution of the raster\nres(raster)\n\n# \naggregate(raster)\nresample()\n\nas.line(), as.polygon()"
+    "text": "Summary of key functions in terra\n\n\nVector\n# read\nvector &lt;- vect(\"my_polygons.gpkg\")\n\n# write\nwriteVector(vector, \"my_file.gpkg\")\n\n# calculate distance or perimeter\nperim(vector)\n\n# calculate area for polygons\nexpanse(vector)\n\n# calculate distance between objects\ndistance(vector)\n\n# create buffers around objects\nbuffer(vector, set_dist)\n\n# find spatially interesecting features\nintersect(vector1, vector2)\n\n# transform vector to raster format\nrasterize(vector)\n\n&lt;&gt;\n# coordinate reference system\ncrs()\n\n# extent of the spatial object (xmin, xmax, ymin, ymax)\next()\n\n# getting the dimensions of the spatial object\ndim()\n\n# making a simple map\nplot()\n\n# projection to different CRS\nproject()\n\n# extracting raster values at vector locations\nextract(vector, raster)\n\n# remove area outside extent of interest\ncrop()\nmask()\n\nRaster\n# read\nraster &lt;- rast(\"my_raster.tif\")\n\n# write\nwriteRaster(raster, \"my_file.tif\")\n\n# resolution of the raster\nres(raster)\n\n# decrease the resolution\naggregate(raster, fact = 2)\n\n# change the grid \nresample(raster1, raster2)\n\n# transform into vector\nas.line(raster)\nas.polygon(raster)"
   },
   {
     "objectID": "index.html",
