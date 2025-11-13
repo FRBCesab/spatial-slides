@@ -11,7 +11,7 @@
 ::: {.column .information width="68%"}
 
 ::: {.title}
-Spatial analysis with R
+Spatial analysis with {{< fa brands r-project >}}
 :::
 
 ::: {.subtitle}

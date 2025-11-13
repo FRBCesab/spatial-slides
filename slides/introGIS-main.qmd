@@ -13,7 +13,7 @@
 <br>
 
 - Feel more comfortable to work with spatial data  
-- Load spatial data in R and visualize it
+- Load spatial data in {{< fa brands r-project >}} and visualize it
 - Extract information from remote sensing or model datasets
 - Take advantage of the numerous databases that are available online
 
@@ -119,7 +119,7 @@ Two key concepts in GIS:
 <iframe src="https://www.onf.ca/film/carte_impossible/embed/player/" width="516" height="290" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
 -->
 
-## There are many, many projections
+## There are many many projections
 
 <iframe width="75%" height="540" frameborder="0"
   src="https://observablehq.com/embed/@d3/projection-transitions?cells=viewof+projection%2Cviewof+context"></iframe>
@@ -131,8 +131,10 @@ or without attribution
 
 or video from NASA
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EWU26jetYnA?si=6Dd29DmHl8xaYoAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
--->
 
+or mention to 
+^[Make your own at <https://www.worldmapgenerator.com/>]
+-->
 
 
 
@@ -464,24 +466,27 @@ Share it with colleagues : [terrameta](https://frbcesab.github.io/terrameta/)
 
 ::::
 
-# R as a GIS tool
+# {{< fa brands r-project >}} as a GIS tool
 
-## Is R a good GIS software?
+## Is {{< fa brands r-project >}} a good GIS software?
 
 
-|                  | Desktop GIS (GUI) <br> ArcGIS, Quantum GIS  | Scripting <br> {{< fa brands r-project >}}, Python^[rasterio library is similar to terra] |
+|                  | Desktop GIS (GUI) <br> ArcGIS, Quantum GIS  | Scripting <br> {{< fa brands r-project >}}, Python^[[rasterio library](https://rasterio.readthedocs.io/) is the Python equivalent to `terra`] |
 |------------------|--------------------------|-----------------------|
 | Home disciplines | Geography                | Computing, Statistics |
 | Software focus   | Graphical User Interface | Command line          |
 | Reproducibility  | Minimal                  | **Maximal**           |
 
-<!-- from https://r.geocompx.org/intro -->
 
 <br>
 
+
+. . .  
+
+
 #### {{< fa brands r-project >}} packages
 
-In this tutorial we will see how to use `terra`, `sf`, and `mapview`.   
+In these tutorials, we will see how to use `terra`, `sf`, and `mapview`.   
 
 Other interesting packages:   
 
@@ -490,6 +495,11 @@ Other interesting packages:
 
 Recently deprecated {{< fa brands r-project >}} packages (end of 2023) : `sp`, `raster`, `rgdal`, `rgeos`, `maptools`
 
+
+::: aside
+
+Table adapted from <https://r.geocompx.org/intro>
+:::
 <!--
 :::: {.columns}
 ::: {.column width="30%"}
@@ -568,10 +578,10 @@ rasterize(vector)
 # coordinate reference system
 crs()
 
-# extent of the spatial object (xmin, xmax, ymin, ymax)
-ext()
+# extent of the spatial object 
+ext() # (xmin, xmax, ymin, ymax)
 
-# getting the dimensions of the spatial object
+# getting the dimensions of the object
 dim()
 
 # making a simple map
@@ -580,7 +590,7 @@ plot()
 # projection to different CRS
 project()
 
-# extracting raster values at vector locations
+# extract cell values at vector locations
 extract(vector, raster)
 
 # remove area outside extent of interest
