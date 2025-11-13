@@ -4,7 +4,7 @@
     "href": "intro-GIS.html#objectives",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Objectives",
-    "text": "Objectives\n\n\n\n\n\n\n\nFeel more comfortable to work with spatial data\n\nLoad spatial data in R and visualize it\nExtract information from remote sensing or model datasets\nTake advantage of the numerous databases that are available online\n\n\n\n\n\nVies-à-Vies\n\n\n\n\n\nObservations in 2021 from GBIF"
+    "text": "Objectives\n\n\n\n\n\n\n\nFeel more comfortable to work with spatial data\n\nLoad spatial data in  and visualize it\nExtract information from remote sensing or model datasets\nTake advantage of the numerous databases that are available online\n\n\n\n\n\nVies-à-Vies\n\n\n\n\n\nObservations in 2021 from GBIF"
   },
   {
     "objectID": "intro-GIS.html#schedule",
@@ -31,8 +31,8 @@
     "objectID": "intro-GIS.html#there-are-many-many-projections",
     "href": "intro-GIS.html#there-are-many-many-projections",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
-    "section": "There are many, many projections",
-    "text": "There are many, many projections"
+    "section": "There are many many projections",
+    "text": "There are many many projections"
   },
   {
     "objectID": "intro-GIS.html#the-most-commun-projection-systems",
@@ -84,18 +84,18 @@
     "text": "Keeping track of new spatial data\n\n\n\n\n\nMetaGIS\n\n\n\n\n\nLet’s help each other\n\nFeel free to add new dataset\n Share it with colleagues : terrameta"
   },
   {
-    "objectID": "intro-GIS.html#is-r-a-good-gis-software",
-    "href": "intro-GIS.html#is-r-a-good-gis-software",
+    "objectID": "intro-GIS.html#is-a-good-gis-software",
+    "href": "intro-GIS.html#is-a-good-gis-software",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
-    "section": "Is R a good GIS software?",
-    "text": "Is R a good GIS software?\n\n\n\n\n\n\n\n\n\nDesktop GIS (GUI)  ArcGIS, Quantum GIS\nScripting  , Python1\n\n\n\n\nHome disciplines\nGeography\nComputing, Statistics\n\n\nSoftware focus\nGraphical User Interface\nCommand line\n\n\nReproducibility\nMinimal\nMaximal\n\n\n\n\n\n packages\nIn this tutorial we will see how to use terra, sf, and mapview.\nOther interesting packages:\n\nmapsf and tmap: creates nice looking maps\n\nexactextractr : fast extraction on large raster\n\nRecently deprecated  packages (end of 2023) : sp, raster, rgdal, rgeos, maptools\n\nrasterio library is similar to terra"
+    "section": "Is  a good GIS software?",
+    "text": "Is  a good GIS software?\n\n\n\n\nDesktop GIS (GUI)  ArcGIS, Quantum GIS\nScripting  , Python1\n\n\n\n\nHome disciplines\nGeography\nComputing, Statistics\n\n\nSoftware focus\nGraphical User Interface\nCommand line\n\n\nReproducibility\nMinimal\nMaximal\n\n\n\n\n\n packages\nIn these tutorials, we will see how to use terra, sf, and mapview.\nOther interesting packages:\n\nmapsf and tmap: creates nice looking maps\n\nexactextractr : fast extraction on large raster\n\nRecently deprecated  packages (end of 2023) : sp, raster, rgdal, rgeos, maptools\n\n\n\n\nTable adapted from https://r.geocompx.org/intro\nrasterio library is the Python equivalent to terra"
   },
   {
     "objectID": "intro-GIS.html#summary-of-key-functions-in-terra",
     "href": "intro-GIS.html#summary-of-key-functions-in-terra",
     "title": "FRB-CESAB workshop on spatial data analysis in R",
     "section": "Summary of key functions in terra",
-    "text": "Summary of key functions in terra\n\n\nVector\n# read\nvector &lt;- vect(\"my_polygons.gpkg\")\n\n# write\nwriteVector(vector, \"my_file.gpkg\")\n\n# calculate distance or perimeter\nperim(vector)\n\n# calculate area for polygons\nexpanse(vector)\n\n# calculate distance between objects\ndistance(vector)\n\n# create buffers around objects\nbuffer(vector, set_dist)\n\n# find spatially interesecting features\nintersect(vector1, vector2)\n\n# transform vector to raster format\nrasterize(vector)\n\n&lt;&gt;\n# coordinate reference system\ncrs()\n\n# extent of the spatial object (xmin, xmax, ymin, ymax)\next()\n\n# getting the dimensions of the spatial object\ndim()\n\n# making a simple map\nplot()\n\n# projection to different CRS\nproject()\n\n# extracting raster values at vector locations\nextract(vector, raster)\n\n# remove area outside extent of interest\ncrop()\nmask()\n\nRaster\n# read\nraster &lt;- rast(\"my_raster.tif\")\n\n# write\nwriteRaster(raster, \"my_file.tif\")\n\n# resolution of the raster\nres(raster)\n\n# decrease the resolution\naggregate(raster, fact = 2)\n\n# change the grid \nresample(raster1, raster2)\n\n# transform into vector\nas.line(raster)\nas.polygon(raster)"
+    "text": "Summary of key functions in terra\n\n\nVector\n# read\nvector &lt;- vect(\"my_polygons.gpkg\")\n\n# write\nwriteVector(vector, \"my_file.gpkg\")\n\n# calculate distance or perimeter\nperim(vector)\n\n# calculate area for polygons\nexpanse(vector)\n\n# calculate distance between objects\ndistance(vector)\n\n# create buffers around objects\nbuffer(vector, set_dist)\n\n# find spatially interesecting features\nintersect(vector1, vector2)\n\n# transform vector to raster format\nrasterize(vector)\n\n&lt;&gt;\n# coordinate reference system\ncrs()\n\n# extent of the spatial object \next() # (xmin, xmax, ymin, ymax)\n\n# getting the dimensions of the object\ndim()\n\n# making a simple map\nplot()\n\n# projection to different CRS\nproject()\n\n# extract cell values at vector locations\nextract(vector, raster)\n\n# remove area outside extent of interest\ncrop()\nmask()\n\nRaster\n# read\nraster &lt;- rast(\"my_raster.tif\")\n\n# write\nwriteRaster(raster, \"my_file.tif\")\n\n# resolution of the raster\nres(raster)\n\n# decrease the resolution\naggregate(raster, fact = 2)\n\n# change the grid \nresample(raster1, raster2)\n\n# transform into vector\nas.line(raster)\nas.polygon(raster)"
   },
   {
     "objectID": "index.html",

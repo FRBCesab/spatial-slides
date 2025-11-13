@@ -203,7 +203,7 @@
 <p><img data-src="img/spatialr_logo01b.png"></p>
 </div><!-- Title slide content --><div class="column information" style="width:68%;">
 <div class="title">
-<p>Spatial analysis with R</p>
+<p>Spatial analysis with <i class="fa-brands fa-r-project" aria-label="r-project"></i></p>
 </div>
 <div class="subtitle">
 <p>Introduction to GIS for ecologists</p>
@@ -245,7 +245,7 @@ Nicolas Casajus<br/>
 <ul>
 <li>Feel more comfortable to work with spatial data<br>
 </li>
-<li>Load spatial data in R and visualize it</li>
+<li>Load spatial data in <i class="fa-brands fa-r-project" aria-label="r-project"></i> and visualize it</li>
 <li>Extract information from remote sensing or model datasets</li>
 <li>Take advantage of the numerous databases that are available online</li>
 </ul>
@@ -354,7 +354,7 @@ Nicolas Casajus<br/>
 -->
 </section>
 <section id="there-are-many-many-projections" class="slide level2">
-<h2>There are many, many projections</h2>
+<h2>There are many many projections</h2>
 <iframe width="75%" height="540" frameborder="0" src="https://observablehq.com/embed/@d3/projection-transitions?cells=viewof+projection%2Cviewof+context">
 </iframe>
 <!-- 
@@ -364,6 +364,9 @@ or without attribution
 
 or video from NASA
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EWU26jetYnA?si=6Dd29DmHl8xaYoAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+or mention to 
+^[Make your own at <https://www.worldmapgenerator.com/>]
 -->
 </section>
 <section id="the-most-commun-projection-systems" class="slide level2">
@@ -648,18 +651,13 @@ Theia ?
 </div></div>
 </section></section>
 <section>
-<section id="r-as-a-gis-tool" class="title-slide slide level1 center">
-<h1>R as a GIS tool</h1>
+<section id="as-a-gis-tool" class="title-slide slide level1 center">
+<h1><i class="fa-brands fa-r-project" aria-label="r-project"></i> as a GIS tool</h1>
 
 </section>
-<section id="is-r-a-good-gis-software" class="slide level2">
-<h2>Is R a good GIS software?</h2>
+<section id="is-a-good-gis-software" class="slide level2">
+<h2>Is <i class="fa-brands fa-r-project" aria-label="r-project"></i> a good GIS software?</h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 38%">
-<col style="width: 34%">
-</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -685,10 +683,10 @@ Theia ?
 </tr>
 </tbody>
 </table>
-<!-- from https://r.geocompx.org/intro -->
 <p><br></p>
+<div class="fragment">
 <h4 id="packages"><i class="fa-brands fa-r-project" aria-label="r-project"></i> packages</h4>
-<p>In this tutorial we will see how to use <code>terra</code>, <code>sf</code>, and <code>mapview</code>.</p>
+<p>In these tutorials, we will see how to use <code>terra</code>, <code>sf</code>, and <code>mapview</code>.</p>
 <p>Other interesting packages:</p>
 <ul>
 <li><code>mapsf</code> and <code>tmap</code>: creates nice looking maps<br>
@@ -696,6 +694,7 @@ Theia ?
 <li><code>exactextractr</code> : fast extraction on large raster</li>
 </ul>
 <p>Recently deprecated <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages (end of 2023) : <code>sp</code>, <code>raster</code>, <code>rgdal</code>, <code>rgeos</code>, <code>maptools</code></p>
+
 <!--
 :::: {.columns}
 ::: {.column width="30%"}
@@ -730,7 +729,10 @@ Theia ?
 
 ::::
 -->
-<aside><ol class="aside-footnotes"><li id="fn3"><p>rasterio library is similar to terra</p></li></ol></aside></section>
+</div>
+<aside><div>
+<p>Table adapted from <a href="https://r.geocompx.org/intro" class="uri">https://r.geocompx.org/intro</a></p>
+</div><ol class="aside-footnotes"><li id="fn3"><p><a href="https://rasterio.readthedocs.io/">rasterio library</a> is the Python equivalent to <code>terra</code></p></li></ol></aside></section>
 <section id="summary-of-key-functions-in-terra" class="slide level2">
 <h2>Summary of key functions in <code>terra</code></h2>
 <div class="columns">
@@ -764,10 +766,10 @@ Theia ?
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="|1-8|10-11|13-14|16-17|19-21|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># coordinate reference system</span></span>
 <span id="cb2-2"><a></a><span class="fu">crs</span>()</span>
 <span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># extent of the spatial object (xmin, xmax, ymin, ymax)</span></span>
-<span id="cb2-5"><a></a><span class="fu">ext</span>()</span>
+<span id="cb2-4"><a></a><span class="co"># extent of the spatial object </span></span>
+<span id="cb2-5"><a></a><span class="fu">ext</span>() <span class="co"># (xmin, xmax, ymin, ymax)</span></span>
 <span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># getting the dimensions of the spatial object</span></span>
+<span id="cb2-7"><a></a><span class="co"># getting the dimensions of the object</span></span>
 <span id="cb2-8"><a></a><span class="fu">dim</span>()</span>
 <span id="cb2-9"><a></a></span>
 <span id="cb2-10"><a></a><span class="co"># making a simple map</span></span>
@@ -776,7 +778,7 @@ Theia ?
 <span id="cb2-13"><a></a><span class="co"># projection to different CRS</span></span>
 <span id="cb2-14"><a></a><span class="fu">project</span>()</span>
 <span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a><span class="co"># extracting raster values at vector locations</span></span>
+<span id="cb2-16"><a></a><span class="co"># extract cell values at vector locations</span></span>
 <span id="cb2-17"><a></a><span class="fu">extract</span>(vector, raster)</span>
 <span id="cb2-18"><a></a></span>
 <span id="cb2-19"><a></a><span class="co"># remove area outside extent of interest</span></span>
